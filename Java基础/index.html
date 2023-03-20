@@ -1,239 +1,409 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="ansisn">
+      
+      
+        <link rel="canonical" href="https://ansisn.github.io/mkdocs-stduy/Java%E5%9F%BA%E7%A1%80/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
+    
+    
+      
+        <title>Java基础 - ansisn's note</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.c4a75a56.min.css">
+      
         
-        
-        
-        <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Java基础 - My Docs</title>
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../css/font-awesome.min.css" rel="stylesheet">
-        <link href="../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
-
-        <script src="../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../js/bootstrap.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script> 
-    </head>
-
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href="..">My Docs</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li class="navitem">
-                                <a href=".." class="nav-link">Welcome to ansisn</a>
-                            </li>
-                            <li class="navitem active">
-                                <a href="./" class="nav-link">Java基础</a>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li class="nav-item">
-                                <a rel="prev" href=".." class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" class="nav-link disabled">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
 
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-level="1"><a href="#java" class="nav-link">Java基础</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#_13" class="nav-link">快捷键</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#_14" class="nav-link">访问修饰 符号</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#_15" class="nav-link">创建对象流程</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#_16" class="nav-link">封装和继承多态</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#java_2" class="nav-link">java的动态绑定机制</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#object" class="nav-link">object类详解</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#debug" class="nav-link">断点调试（debug）</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#simpledateformat" class="nav-link">SimpleDateFormat方法</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#instance" class="nav-link">instance方法</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#static" class="nav-link">static</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#_25" class="nav-link">代码块</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#main" class="nav-link">main方法</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#_30" class="nav-link">单例模式</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#_31" class="nav-link">饿汉式</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#_32" class="nav-link">懒汉式</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#final" class="nav-link">final关键字</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#abstract" class="nav-link">抽象类（abstract)</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#interface" class="nav-link">接口（interface）</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#_39" class="nav-link">内部类</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#_40" class="nav-link">基本介绍</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#_41" class="nav-link">内部类任何通过外部类访问内部成员</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#_42" class="nav-link">内部类的分类</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#_46" class="nav-link">面向对象到此结束</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#enumeration" class="nav-link">枚举（enumeration）</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#_47" class="nav-link">枚举的实现方式</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#enum_1" class="nav-link">enum细节</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#enmu" class="nav-link">enmu类常用方法</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#annotation" class="nav-link">注解（Annotation）</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#_49" class="nav-link">修饰符</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#_50" class="nav-link">元注解</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#exception" class="nav-link">异常（Exception）</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#_55" class="nav-link">异常处理机制</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-        </ul>
-    </div>
-</div></div>
-                    <div class="col-md-9" role="main">
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
-<h1 id="java">Java基础</h1>
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="yellow" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#java" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="ansisn&#39;s note" class="md-header__button md-logo" aria-label="ansisn's note" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ansisn's note
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Java基础
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="yellow" data-md-color-accent=""  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="cyan"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan"  aria-label="切换至日间模式"  type="radio" name="__palette" id="__palette_3">
+          
+            <label class="md-header__button md-icon" title="切换至日间模式" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Wcowin/mymkdocs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Wcowin.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../java基础：mkdocs-study/docs/Java基础.md" class="md-tabs__link">
+      None
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ansisn&#39;s note" class="md-nav__button md-logo" aria-label="ansisn's note" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    ansisn's note
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Wcowin/mymkdocs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Wcowin.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java基础：mkdocs-study/docs/Java基础.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    常用的几个命令操作有那些？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    创建类
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    编译和运行指令
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#java_1" class="md-nav__link">
+    java基础语法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    强制转换
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    常量
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    命名规范
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    包机制
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scanner" class="md-nav__link">
+    Scanner 对象
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#for" class="md-nav__link">
+    for的强化使用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    方法《=》C的函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    方法的重载规则：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variadic-parameters" class="md-nav__link">
+    可变参数Variadic  parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    数组
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    构造器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    方法调用小结（提高代码的复用性）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    递归的重要原则
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+  
+  
+
+
+<h1 id="java">Java基础<a class="headerlink" href="#java" title="Permanent link">&para;</a></h1>
 <p>一、JDK是什么？
 1.JDK全称Java Development Kit 中文意思是Java 开发工具包
 2.JDK是sun公司开发的
@@ -247,48 +417,47 @@
 <p>path  = %JAVA_HOME%bin</p>
 <p>(Java运行环境)</p>
 <p><font color= "red">JVM(Java虚拟机)</font></p>
-<h4 id="_1">常用的几个命令操作有那些？</h4>
+<h4 id="_1">常用的几个命令操作有那些？<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
 <p>cd</p>
 <p>md</p>
 <p>rd</p>
 <p>del </p>
 <p>cd..</p>
 <p>cd/</p>
-<h4 id="_2">创建类</h4>
+<h4 id="_2">创建类<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
 <p>创建java文件: ChairMan.java</p>
 <p>public class  类名chairman{</p>
 <p>public static void main (Strinf[] args){</p>
 <p>​        System.out.printLn(""); //输出</p>
 <p>}</p>
 <p>}</p>
-<h4 id="_3">编译和运行指令</h4>
+<h4 id="_3">编译和运行指令<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
 <p>编译： java ChairMan.Java</p>
 <p>运行：java.ChairMan</p>
-<h4 id="java_1">java基础语法</h4>
+<h4 id="java_1">java基础语法<a class="headerlink" href="#java_1" title="Permanent link">&para;</a></h4>
 <p>关键字和保留字 </p>
-<pre><code class="language-java">public class Class {
-    public static void main(String[] args) {
-        System.out.println(&quot;helloWorld&quot;);
-    }
-}
-
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Class</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;helloWorld&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span>
+</code></pre></div>
 <p>二进制 0d   八进制0   十六进值0x</p>
 <p>BigDecimal   浮点型类 银行存储</p>
 <p>long 需要加个L(小写)</p>
 <p>float 需要加个 f</p>
-<h4 id="_4">强制转换</h4>
+<h4 id="_4">强制转换<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
 <p>高精度转换低精度的时候需要强制转换   int i =6  byte b = (byte)i;</p>
-<h4 id="_5">常量</h4>
+<h4 id="_5">常量<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
 <p>final double PI =3.14</p>
 <p>&lt;=&gt;C语言中的#define</p>
-<h4 id="_6">命名规范</h4>
+<h4 id="_6">命名规范<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
 <p>类成员变量:首字母小写和驼峰规则：monthSalary</p>
 <p>局部变量：首字母小写和驼峰规则</p>
 <p>常量：大写字幕和下划线：    MAX_VALUE</p>
 <p>类名：首字母小写和驼峰规则：Man,GoodMan</p>
 <p>方法名：首字母小写和驼峰规则：run(),runRun</p>
-<h4 id="_7">包机制</h4>
+<h4 id="_7">包机制<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
 <p>import 引用包成员</p>
 <p>例： import package1[.package2...].(classname*);</p>
 <p>​        import.java.util.*工具包</p>
@@ -302,59 +471,57 @@
 <li>可以引用相同名字的类</li>
 <li>控制访问访问</li>
 </ol>
-<h4 id="scanner">Scanner 对象</h4>
+<h4 id="scanner">Scanner 对象<a class="headerlink" href="#scanner" title="Permanent link">&para;</a></h4>
 <p>可以获取用户输入</p>
 <p>例：  Scanner  scanner = new Scanner =(System.in);</p>
-<pre><code class="language-java">package 基础语法.com.ansisn;
-
-import java.net.SocketTimeoutException;
-import java.util.Scanner;
-
-public class scanner {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println(&quot;next&quot;);//next以空白为结束符   nextLine以回车为结束符
-        //判断用户是否输出字符串
-        if (scanner.hasNext()) {//hasNextline
-            String str = scanner.next();
-            System.out.println(&quot;输出内容是：&quot; + str);
-        }
-        scanner.close();
-
-    }
-}
-
-</code></pre>
-<h4 id="for">for的强化使用</h4>
-<pre><code>int [] num ={10 ,20,30,50};
-
-for(int x ：num)    &lt;=&gt;   for（int i=0,i&lt;num.length;i++)
-</code></pre>
-<h4 id="c">方法《=》C的函数</h4>
-<h4 id="_8">方法的重载规则：</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">基础语法.com.ansisn</span><span class="p">;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.net.SocketTimeoutException</span><span class="p">;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Scanner</span><span class="p">;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">scanner</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">        </span><span class="n">Scanner</span><span class="w"> </span><span class="n">scanner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;next&quot;</span><span class="p">);</span><span class="c1">//next以空白为结束符   nextLine以回车为结束符</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="c1">//判断用户是否输出字符串</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">scanner</span><span class="p">.</span><span class="na">hasNext</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="c1">//hasNextline</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanner</span><span class="p">.</span><span class="na">next</span><span class="p">();</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;输出内容是：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">str</span><span class="p">);</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="n">scanner</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="p">}</span>
+</code></pre></div>
+<h4 id="for">for的强化使用<a class="headerlink" href="#for" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>int [] num ={10 ,20,30,50};
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>for(int x ：num)    &lt;=&gt;   for（int i=0,i&lt;num.length;i++)
+</code></pre></div>
+<h4 id="c">方法《=》C的函数<a class="headerlink" href="#c" title="Permanent link">&para;</a></h4>
+<h4 id="_8">方法的重载规则：<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
 <p>（1） 方法名相同</p>
 <p>（2）参数列表必须不同</p>
 <p>（3）方法的返回类型可以相同可以不同</p>
 <p>（4）仅仅返回类型不同不足以成为方法重载。</p>
-<h4 id="variadic-parameters">可变参数Variadic  parameters</h4>
-<pre><code class="language-java">package 基础语法.com.ansisn;
-
-public class Variadicparameters {
-    public static void main(String[] args) {
-        Variadicparameters variadicparameters = new Variadicparameters();
-        variadicparameters.text( 2,3,4,5);
-    }
-    public  static  void text(int... i){//可传任意个数
-        System.out.println(i[2]);
-    }
-}
-
-</code></pre>
-<h4 id="_9">数组</h4>
+<h4 id="variadic-parameters">可变参数Variadic  parameters<a class="headerlink" href="#variadic-parameters" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">基础语法.com.ansisn</span><span class="p">;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Variadicparameters</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">        </span><span class="n">Variadicparameters</span><span class="w"> </span><span class="n">variadicparameters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Variadicparameters</span><span class="p">();</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="n">variadicparameters</span><span class="p">.</span><span class="na">text</span><span class="p">(</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="kd">public</span><span class="w">  </span><span class="kd">static</span><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">text</span><span class="p">(</span><span class="kt">int</span><span class="p">...</span><span class="w"> </span><span class="n">i</span><span class="p">){</span><span class="c1">//可传任意个数</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">i</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">);</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="p">}</span>
+</code></pre></div>
+<h4 id="_9">数组<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
 <p>int [] num;</p>
 <p>num = new int[10]; //开辟十个空间</p>
 <p><img alt="1673858931644" src="assets/1673858931644.png" /></p>
-<h4 id="_10">构造器</h4>
+<h4 id="_10">构造器<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
 <ol>
 <li>
 <p>必须和类的名字相同</p>
@@ -372,7 +539,7 @@ public class Variadicparameters {
 <li>this不能再类定义外使用；</li>
 </ol>
 <p>​    任何一个类都可以有main方法</p>
-<h4 id="_11">方法调用小结（提高代码的复用性）</h4>
+<h4 id="_11">方法调用小结（提高代码的复用性）<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
 <ol>
 <li>当程序执行到方法时，就会开辟一个独立的栈空间</li>
 <li>当方法执行完毕，或者执行到return语句时，就会返回</li>
@@ -380,7 +547,7 @@ public class Variadicparameters {
 <li>返回后，继续执行方法后面的代码</li>
 <li>当main方法（栈）执行完毕，整个程序就会退出。</li>
 </ol>
-<h4 id="_12">递归的重要原则</h4>
+<h4 id="_12">递归的重要原则<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
 <ol>
 <li>执行一个方法时，就创建一个新的受保护的独立空间（栈空间）</li>
 <li>方法的局部变量是独立的，不会相互影响，比如n变量</li>
@@ -388,7 +555,7 @@ public class Variadicparameters {
 <li>递归必须退出递归条件逼近，否则无限递归</li>
 <li>当一个方法执行完毕，或者遇到return就会返回，遵守谁调用，就将结果返回给谁</li>
 </ol>
-<h1 id="_13">快捷键</h1>
+<h1 id="_13">快捷键<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h1>
 <ol>
 <li>alt + ins 快速生成构造器</li>
 <li>ctrl +b 可以定位到方法</li>
@@ -396,7 +563,7 @@ public class Variadicparameters {
 <li>alt加回车 或者 .var自动分配变量名</li>
 <li>CTRL+ATL+l 格式化快捷键</li>
 </ol>
-<h2 id="_14">访问修饰 符号</h2>
+<h2 id="_14">访问修饰 符号<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
 <ol>
 <li>公开级别：</li>
 <li>public 对外公开   （ 本类  同包 子类 不同包都可以访问   往下依次从右到左不可以访问）</li>
@@ -405,23 +572,23 @@ public class Variadicparameters {
 <li>私有级别：用private修饰，只有类本身可以访问，对外不公开</li>
 <li>只有public 和 默认 才能修饰类</li>
 </ol>
-<h1 id="_15">创建对象流程</h1>
+<h1 id="_15">创建对象流程<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h1>
 <ol>
 <li>加载   某类信息</li>
 <li>初始化 ： 默认初始化，显示初始化，构造器初始化</li>
 <li>返回对象地址</li>
 </ol>
-<h1 id="_16">封装和继承多态</h1>
-<h4 id="encapsulation">封装（encapsulation）</h4>
+<h1 id="_16">封装和继承多态<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h1>
+<h4 id="encapsulation">封装（encapsulation）<a class="headerlink" href="#encapsulation" title="Permanent link">&para;</a></h4>
 <p>封装就是把抽象的属性和方法封装在一起，数据保护在内部，通过方法进行操作</p>
 <ol>
 <li>隐藏实现细节（private）</li>
 <li>可以对数据进行验证，保证安全合理</li>
 </ol>
-<h4 id="extends">继承extends</h4>
+<h4 id="extends">继承extends<a class="headerlink" href="#extends" title="Permanent link">&para;</a></h4>
 <p>主要价值是提高代码的复用性和可维护性</p>
-<pre><code class="language-java">public class Pupil extends Student
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Pupil</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Student</span>
+</code></pre></div>
 <p>pupil为子类，students为父类</p>
 <ol>
 <li>代码复用性提高</li>
@@ -438,19 +605,19 @@ public class Variadicparameters {
 <li>不能滥用继承，子类和父类之间必须满足is-a的逻辑关系 </li>
 <li>不能缩小父类的访问权限</li>
 </ol>
-<h4 id="super">super</h4>
+<h4 id="super">super<a class="headerlink" href="#super" title="Permanent link">&para;</a></h4>
 <ol>
 <li>super.属性 访问父类属性</li>
 <li>super.方法 （参数类表） 访问父类方法</li>
 <li>super（参数类表） 访问构造器 </li>
 </ol>
-<h4 id="overrid">方法重写/覆盖（overrid）</h4>
+<h4 id="overrid">方法重写/覆盖（overrid）<a class="headerlink" href="#overrid" title="Permanent link">&para;</a></h4>
 <ol>
 <li>方法覆盖就子类有一个方法，和父类的某个方法的名称，返回类型，参数一样，那么我们就说子类的这个方法覆盖了父类的方法</li>
 <li>子类的返回类型必须在父类的返回类型中，或者相同</li>
 <li>子类方法不能缩小父类的访问权限</li>
 </ol>
-<h4 id="polymorphic">多态（polymorphic）</h4>
+<h4 id="polymorphic">多态（polymorphic）<a class="headerlink" href="#polymorphic" title="Permanent link">&para;</a></h4>
 <ol>
 <li>方法的重写和重载体现多态</li>
 <li>一个对象的编译类型和运行类型可以不一致</li>
@@ -461,13 +628,13 @@ public class Variadicparameters {
 <p>例：Animal animal = new Dog(); {animal 编译类型（Javac）是Animal，运行类型(java)是Dog}</p>
 <p>animal = new Cat(); {animal的运行类型变成 Cat ，编译类型仍然是 Animal  }</p>
 <p>多态的前提是：两个对象存在继承关系</p>
-<h4 id="_17">多态的向上转型</h4>
+<h4 id="_17">多态的向上转型<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
 <ol>
 <li>本质：父类的引用指向了子类的对象</li>
 <li>语法：父类类型    引用名 = new 子类类型（）；《==》Animal animal = new Dog()</li>
 <li>特点：编译类型看左，运行类型看右，可以调用父类所有成员（遵循访问权限）：不能调用子类中特有成员；最终运行看子类的具体实现</li>
 </ol>
-<h4 id="_18">多态的向下转型</h4>
+<h4 id="_18">多态的向下转型<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
 <p>Dog dog = (Dog) animal</p>
 <ol>
 <li>语法：子类类型   引用名 = （子类类型）父类引用；</li>
@@ -475,7 +642,7 @@ public class Variadicparameters {
 <li>要求父类的引用必须指向的是当前目标类型的对象</li>
 <li>可以调用子类类型中所有的成员</li>
 </ol>
-<h4 id="_19">多态的注意事项</h4>
+<h4 id="_19">多态的注意事项<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h4>
 <ol>
 <li>
 <p>属性没有重写之说，属性的值看编译类型</p>
@@ -487,17 +654,18 @@ public class Variadicparameters {
 <p>方法定义的形参类型为父类，实参类型允许为子类</p>
 </li>
 </ol>
-<p><code>BB bb = new BB
-   bb instanceOf BB</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>BB bb = new BB
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>bb instanceOf BB
+</code></pre></div>
 <p>判断为true</p>
-<h1 id="java_2">java的动态绑定机制</h1>
+<h1 id="java_2">java的动态绑定机制<a class="headerlink" href="#java_2" title="Permanent link">&para;</a></h1>
 <ol>
 <li>当调用对象方法的时候，改方法会和改对象的 内存地址绑定/运行类型绑定</li>
 <li>当调用属性时，没有动态绑定机制</li>
 </ol>
-<h1 id="object">object类详解</h1>
-<h3 id="equals">== 与equals 方法比较</h3>
-<h4 id="_20">== 的详解</h4>
+<h1 id="object">object类详解<a class="headerlink" href="#object" title="Permanent link">&para;</a></h1>
+<h3 id="equals">== 与equals 方法比较<a class="headerlink" href="#equals" title="Permanent link">&para;</a></h3>
+<h4 id="_20">== 的详解<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h4>
 <ol>
 <li>
 <p>== 为比较运算符</p>
@@ -512,9 +680,9 @@ public class Variadicparameters {
 <p>如果判断引用类型，判断地址是否相等 </p>
 </li>
 </ol>
-<h4 id="getcalss">getcalss方法</h4>
+<h4 id="getcalss">getcalss方法<a class="headerlink" href="#getcalss" title="Permanent link">&para;</a></h4>
 <p>返回该对象的运行类型</p>
-<h4 id="equals_1">equals方法</h4>
+<h4 id="equals_1">equals方法<a class="headerlink" href="#equals_1" title="Permanent link">&para;</a></h4>
 <ol>
 <li>
 <p>equals是方法  </p>
@@ -526,21 +694,21 @@ public class Variadicparameters {
 <p>默认判断地址是否相等，子类中往往重写该方法，用于判断内容是否相等 </p>
 </li>
 </ol>
-<h4 id="equals_2">equals方法的重写</h4>
-<pre><code class="language-java">public boolean equals(object obj){
-    if(this == obj){//判断两个比较对象是否相同
-        return true;
-    }
-    if(!(obj instanceof Doctor)){
-        return false;//判断是否属于doctor类
-    }
-    //向下转型，以为obj的运行类型是Doctor或者其子类型
-    Doctor doctor = (Doctor)obj;
-    return this.name.equals(doctor.name) &amp;&amp; this.age == doctor.age;//判断各种属性是否相等
-}
-class Doctor{}
-</code></pre>
-<h3 id="hashcode">hashCode方法</h3>
+<h4 id="equals_2">equals方法的重写<a class="headerlink" href="#equals_2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">equals</span><span class="p">(</span><span class="n">object</span><span class="w"> </span><span class="n">obj</span><span class="p">){</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">obj</span><span class="p">){</span><span class="c1">//判断两个比较对象是否相同</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">obj</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">Doctor</span><span class="p">)){</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="c1">//判断是否属于doctor类</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="c1">//向下转型，以为obj的运行类型是Doctor或者其子类型</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="n">Doctor</span><span class="w"> </span><span class="n">doctor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Doctor</span><span class="p">)</span><span class="n">obj</span><span class="p">;</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">doctor</span><span class="p">.</span><span class="na">name</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">age</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">doctor</span><span class="p">.</span><span class="na">age</span><span class="p">;</span><span class="c1">//判断各种属性是否相等</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="p">}</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="kd">class</span> <span class="nc">Doctor</span><span class="p">{}</span>
+</code></pre></div>
+<h3 id="hashcode">hashCode方法<a class="headerlink" href="#hashcode" title="Permanent link">&para;</a></h3>
 <ol>
 <li>提高具有哈希结构的容器效率</li>
 <li>两个引用，如果指向一个对象，则哈希值一样，否则不一样</li>
@@ -549,42 +717,42 @@ class Doctor{}
 </ol>
 <p>例：</p>
 <p>A obj1 = new A(); A obj2 = new  A(); Aobj3 =obj1 ;</p>
-<h3 id="tostring">toString方法</h3>
+<h3 id="tostring">toString方法<a class="headerlink" href="#tostring" title="Permanent link">&para;</a></h3>
 <ol>
 <li>默认返回：全类名（包名+类名）+ @ +哈希值的十六进制</li>
 <li>子类往往重写toString 方法，用于返回对象属性信息 </li>
 <li>当直接输出一个对象时，默认调用toString</li>
 </ol>
-<h3 id="finalize">finalize方法</h3>
+<h3 id="finalize">finalize方法<a class="headerlink" href="#finalize" title="Permanent link">&para;</a></h3>
 <ol>
 <li>当对象被回收时，系统自动调用该对象finalize方法。子类可以重写该方法，做一些释放资源的操作</li>
 <li>什么时候被回收：当某个对象没有引用时，则jvm就认为这个对象是一个垃圾对象，就会使用垃圾回收机制来摧毁该对象，在销毁该对象前，会先调用finalize方法</li>
 <li>垃圾回收机制的调用，是由系统决定，也可以通过System.gc（）主动触发垃圾回收机制，测试：car[name ]</li>
 </ol>
-<h1 id="debug">断点调试（debug）</h1>
-<h3 id="_21">介绍</h3>
+<h1 id="debug">断点调试（debug）<a class="headerlink" href="#debug" title="Permanent link">&para;</a></h1>
+<h3 id="_21">介绍<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
 <ol>
 <li>在断点调试过程中，是运行状态，是以对象的运行类型来执行的</li>
 <li>断点调试是指在程序的某一行设置一个断点，调试时，程序运行到这一行就会停住，然后一步步进行调试，当发现错误时会显示</li>
 <li>断点调试也是Java底层源代码执行过程 </li>
 </ol>
-<h3 id="_22">断点调试快捷键</h3>
+<h3 id="_22">断点调试快捷键<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
 <ol>
 <li>F7 跳入方法内  （跳入）   F8  （跳过）逐行执行代码 </li>
 <li>shift  + F8 (跳出)跳出方法</li>
 <li>F9 执行到下一个断点</li>
 <li>alt + shift +F7 强制进入方法</li>
 </ol>
-<h1 id="simpledateformat">SimpleDateFormat方法</h1>
+<h1 id="simpledateformat">SimpleDateFormat方法<a class="headerlink" href="#simpledateformat" title="Permanent link">&para;</a></h1>
 <p>用于格式化日期</p>
-<pre><code>SimpleDateFormat sdf = new SimpleDateFormat();
-</code></pre>
-<pre><code class="language-java">date = new Date();detail += &quot;\n收入情况\t+&quot; + money + sdf.format(date) + balance;
-</code></pre>
-<h1 id="instance">instance方法</h1>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>SimpleDateFormat sdf = new SimpleDateFormat();
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Date</span><span class="p">();</span><span class="n">detail</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot;\n收入情况\t+&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">money</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sdf</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">date</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">balance</span><span class="p">;</span>
+</code></pre></div>
+<h1 id="instance">instance方法<a class="headerlink" href="#instance" title="Permanent link">&para;</a></h1>
 <p>用于判断一个对象是否相等</p>
-<h1 id="static">static</h1>
-<h4 id="_23">类变量</h4>
+<h1 id="static">static<a class="headerlink" href="#static" title="Permanent link">&para;</a></h1>
+<h4 id="_23">类变量<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h4>
 <ol>
 <li>
 <p>类静态变量变量实现状态共享</p>
@@ -605,7 +773,7 @@ class Doctor{}
 <p>静态属性是在类加载的时候加载</p>
 </li>
 </ol>
-<h4 id="_24">类（静态）方法</h4>
+<h4 id="_24">类（静态）方法<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h4>
 <ol>
 <li>
 <p>当方法中不涉及到任何对象和相关成员时，可以设置为静态方法</p>
@@ -623,12 +791,12 @@ class Doctor{}
 <p>静态方法不能被重写</p>
 </li>
 </ol>
-<h1 id="_25">代码块</h1>
-<h4 id="_26">基本语法</h4>
-<pre><code class="language-java">[修饰符]{
-  代码
-};
-</code></pre>
+<h1 id="_25">代码块<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h1>
+<h4 id="_26">基本语法<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="o">[</span><span class="n">修饰符</span><span class="o">]</span><span class="p">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="n">代码</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="p">};</span>
+</code></pre></div>
 <ol>
 <li>修饰符可以加static，也可以选择为空（默认）</li>
 <li>代码块分为默认和static</li>
@@ -638,29 +806,29 @@ class Doctor{}
 <li>普通代码块，在创建对象实例时，会被隐式调用，被创建一次，调用一次，如果只使用类的静态成员，普通代码块不会执行</li>
 <li>静态代码块只能调用静态成员</li>
 </ol>
-<h4 id="_27">类什么时候被加载</h4>
+<h4 id="_27">类什么时候被加载<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h4>
 <ol>
 <li>创建对象实例（new）</li>
 <li>创建子类对象实例，父类也会加载</li>
 <li>使用类的静态成员</li>
 </ol>
-<h4 id="_28">创建一个对象时，在一个类调用顺序时</h4>
+<h4 id="_28">创建一个对象时，在一个类调用顺序时<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h4>
 <p>（super&gt;代码块&gt;构造器）（静态》动态）（同级按顺序）（父类&gt;子类）</p>
 <ol>
 <li>调用静态代码和静态属性初始化（注意静态代码块和静态熟悉初始化的优先级一样，如果有多个静态代码块和多个静态变量初始化，则她们定义的顺序调用）</li>
 <li>调用普通代码块和普通属性的初始化（如果有多个普通代码块和多个普通属性初始化，则按定义顺序调用）</li>
 <li>调用构造方法</li>
 </ol>
-<h4 id="_29">属性初始化</h4>
+<h4 id="_29">属性初始化<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h4>
 <p>属性初始化在加载类已经形成</p>
-<pre><code class="language-java">class a{
-  int n =get();
-  public void get(){
-    system.out.println(&quot;,,,&quot;);
-  }
-}
-</code></pre>
-<h1 id="main">main方法</h1>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kd">class</span> <span class="nc">a</span><span class="p">{</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="n">get</span><span class="p">();</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">get</span><span class="p">(){</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="n">system</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;,,,&quot;</span><span class="p">);</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="p">}</span>
+</code></pre></div>
+<h1 id="main">main方法<a class="headerlink" href="#main" title="Permanent link">&para;</a></h1>
 <ol>
 <li>
 <p>main方法时虚拟机调用</p>
@@ -681,7 +849,7 @@ class Doctor{}
 <p>main方法可以使用当前类的静态方法和属性  </p>
 </li>
 </ol>
-<h1 id="_30">单例模式</h1>
+<h1 id="_30">单例模式<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h1>
 <p>（可从Rutime类中查找）</p>
 <ol>
 <li>
@@ -702,7 +870,7 @@ class Doctor{}
 <li>向外暴露一个静态的公共方法  getinstance</li>
 <li>代码实现</li>
 </ol>
-<h2 id="_31">饿汉式</h2>
+<h2 id="_31">饿汉式<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h2>
 <p>在<a href="https://so.csdn.net/so/search?q=类加载&amp;spm=1001.2101.3001.7020">类加载</a>过程中就直接创建单例</p>
 <p>优点:
 1、不需要加锁就能保证线程安全
@@ -710,55 +878,55 @@ class Doctor{}
 <p>缺点:
 1、正是因为类加载时就已经创建好了，无论是否使用都已经创建好了，所以会浪费一定的内存。如果一个程序有大量的饿汉式单例模式，那么在类加载时，会同时创建大量单例，会浪费硬件资源。
 2、可以通过反射，创建不同的实例对象。</p>
-<pre><code class="language-java">package com.demo08;public class Simple 
-
-
-{    public static void main(String[] args) {        GirlFriend instance = GirlFriend.getInstance();        System.out.println(instance);   
-   }}
-
-
-class GirlFriend{   
-    //饿汉式   
-    //构造器私有化   
-    //在类的内部创建对象   
-    //提供一个static方法    
-    private String name; 
-    private  static  GirlFriend gf = new GirlFriend(&quot;xio&quot;);  
-    private GirlFriend(String name)
-    {        this.name = name;  
-     System.out.println(&quot;构造器被调用&quot;);} 
-    public static GirlFriend getInstance()
-    {        return gf;    }
-}
-</code></pre>
-<h2 id="_32">懒汉式</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.demo08</span><span class="p">;</span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Simple</span><span class="w"> </span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="p">{</span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">        </span><span class="n">GirlFriend</span><span class="w"> </span><span class="n">instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GirlFriend</span><span class="p">.</span><span class="na">getInstance</span><span class="p">();</span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">instance</span><span class="p">);</span><span class="w">   </span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">   </span><span class="p">}}</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="kd">class</span> <span class="nc">GirlFriend</span><span class="p">{</span><span class="w">   </span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">    </span><span class="c1">//饿汉式   </span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">    </span><span class="c1">//构造器私有化   </span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">    </span><span class="c1">//在类的内部创建对象   </span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">    </span><span class="c1">//提供一个static方法    </span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">    </span><span class="kd">private</span><span class="w">  </span><span class="kd">static</span><span class="w">  </span><span class="n">GirlFriend</span><span class="w"> </span><span class="n">gf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GirlFriend</span><span class="p">(</span><span class="s">&quot;xio&quot;</span><span class="p">);</span><span class="w">  </span>
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="nf">GirlFriend</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span>
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="w">    </span><span class="p">{</span><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">  </span>
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="w">     </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;构造器被调用&quot;</span><span class="p">);}</span><span class="w"> </span>
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">GirlFriend</span><span class="w"> </span><span class="nf">getInstance</span><span class="p">()</span>
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="w">    </span><span class="p">{</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">gf</span><span class="p">;</span><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="_32">懒汉式<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h2>
 <ol>
 <li>在使用时创建对象实例 会造成资源浪费</li>
 <li>存在线程问题</li>
 </ol>
-<pre><code class="language-java">package com.demo08; 
-public class SimpleTon02 { 
-    public static void main(String[] args) { 
-        System.out.println(Cat.n);    }}
-
-
-class Cat{    /*    * 懒汉式  
-* 构造器初始化   
-* 定义一个static的静态属性 
-* 提供一个public的static方法可以返回对象  
-* 只有用户使用getInstance才返回对象*/   
-    private String name;   
-    public static int n = 100;    
-    private static Cat cat;  
-    private Cat(String name) {        this.name = name;    }   
-    public static Cat getInstance(){ 
-        if (cat == null){  
-            cat = new Cat(&quot;xxx&quot;);        }   
-        return cat;    }
-
-}
-</code></pre>
-<h1 id="final">final关键字</h1>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.demo08</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SimpleTon02</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Cat</span><span class="p">.</span><span class="na">n</span><span class="p">);</span><span class="w">    </span><span class="p">}}</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="kd">class</span> <span class="nc">Cat</span><span class="p">{</span><span class="w">    </span><span class="cm">/*    * 懒汉式  </span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="cm">* 构造器初始化   </span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="cm">* 定义一个static的静态属性 </span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="cm">* 提供一个public的static方法可以返回对象  </span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="cm">* 只有用户使用getInstance才返回对象*/</span><span class="w">   </span>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">   </span>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w">    </span>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Cat</span><span class="w"> </span><span class="n">cat</span><span class="p">;</span><span class="w">  </span>
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="nf">Cat</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">    </span><span class="p">}</span><span class="w">   </span>
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Cat</span><span class="w"> </span><span class="nf">getInstance</span><span class="p">(){</span><span class="w"> </span>
+<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cat</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">){</span><span class="w">  </span>
+<a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a><span class="w">            </span><span class="n">cat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Cat</span><span class="p">(</span><span class="s">&quot;xxx&quot;</span><span class="p">);</span><span class="w">        </span><span class="p">}</span><span class="w">   </span>
+<a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">cat</span><span class="p">;</span><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a>
+<a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a><span class="p">}</span>
+</code></pre></div>
+<h1 id="final">final关键字<a class="headerlink" href="#final" title="Permanent link">&para;</a></h1>
 <ol>
 <li>
 <p>使用final修饰的类不能被继承</p>
@@ -794,7 +962,7 @@ class Cat{    /*    * 懒汉式
 <p>包装类为final类（integer，Double等等）</p>
 </li>
 </ol>
-<h1 id="abstract">抽象类（abstract)</h1>
+<h1 id="abstract">抽象类（abstract)<a class="headerlink" href="#abstract" title="Permanent link">&para;</a></h1>
 <ol>
 <li>当一个类中存在抽象方法时，需要声明抽象类</li>
 <li>当父类的一些方法不能确定时，可以用abstract关键字来修饰该方法，这个方法就说抽象方法，用abstrac来修饰该类；</li>
@@ -804,15 +972,15 @@ class Cat{    /*    * 懒汉式
 <li>如果一个类继承抽象类，则它必须实现（将抽象方法重写）抽象类的所有抽象方法，除非它自己声明为抽象类；</li>
 <li>重写方法不能使用private，final，static来修饰，因为这些方法与重写相违背</li>
 </ol>
-<h1 id="interface">接口（interface）</h1>
-<h4 id="_33">定义接口</h4>
+<h1 id="interface">接口（interface）<a class="headerlink" href="#interface" title="Permanent link">&para;</a></h1>
+<h4 id="_33">定义接口<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h4>
 <p>interface 接口名</p>
-<h4 id="_34">接口介绍</h4>
+<h4 id="_34">接口介绍<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h4>
 <p>implements(实现)</p>
-<pre><code class="language-java">class A implements Usb{
-//即A类需要实现usb接口规定的方法
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kd">class</span> <span class="nc">A</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Usb</span><span class="p">{</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="c1">//即A类需要实现usb接口规定的方法</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="p">}</span>
+</code></pre></div>
 <ol>
 <li>
 <p>接口就说给出一些未实现的方法，封装在一起，到某个类要使用的时候，在具体情况把这些方法实现。</p>
@@ -839,11 +1007,11 @@ class Cat{    /*    * 懒汉式
 <p>在jdk8之后可以有方法体</p>
 </li>
 </ol>
-<h4 id="_35">接口的应用</h4>
+<h4 id="_35">接口的应用<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h4>
 <p>当开发软件时，为了控制和管理软件，项目经理可以定义一个接口，然后程序员具体实现。</p>
 <p>当程序员编写一个类，需要和同部门的程序员调节一个方法</p>
 <p>接口的作用是制定标准</p>
-<h4 id="_36">接口的注意事项和细节</h4>
+<h4 id="_36">接口的注意事项和细节<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h4>
 <ol>
 <li>
 <p>接口不能被实例化</p>
@@ -894,24 +1062,24 @@ class Cat{    /*    * 懒汉式
 <p>接口在一定程度上实现代码解耦【接口规范性 +动态绑定机制】</p>
 </li>
 </ol>
-<h4 id="_37">接口的多态特性</h4>
+<h4 id="_37">接口的多态特性<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h4>
 <ol>
 <li>多态参数，在usb案例中，可以接收手机，相机等多种现象，体现接口多态</li>
 <li>多态数组</li>
 <li>接口存在多态传递现象</li>
 </ol>
-<h3 id="_38"></h3>
-<h1 id="_39">内部类</h1>
-<h2 id="_40">基本介绍</h2>
+<h3 id="_38"><a class="headerlink" href="#_38" title="Permanent link">&para;</a></h3>
+<h1 id="_39">内部类<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h1>
+<h2 id="_40">基本介绍<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h2>
 <p>一个类的内部又完整的嵌套另一个类的结构，被嵌套的剋称为内部类，内部类最大特点就是可以直接访问私有属</p>
 <p>性，并且可以体现类与类之间的包含关系</p>
 <p>类的五大属性【属性，方法，构造器，代码块，内部类】</p>
-<h2 id="_41">内部类任何通过外部类访问内部成员</h2>
+<h2 id="_41">内部类任何通过外部类访问内部成员<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h2>
 <ol>
 <li>创建一个方法</li>
 <li>返回内部类</li>
 </ol>
-<h2 id="_42">内部类的分类</h2>
+<h2 id="_42">内部类的分类<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h2>
 <ul>
 <li>定义在外部类的位置上</li>
 </ul>
@@ -922,7 +1090,7 @@ class Cat{    /*    * 懒汉式
 </ul>
 <p>​      成员内部类（没有static修饰）</p>
 <p>​       静态内部类（使用static）</p>
-<h3 id="_43">局部内部类</h3>
+<h3 id="_43">局部内部类<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h3>
 <ol>
 <li>可以直接访问外部类的所有成员，包含私有成员</li>
 <li>局部内部类是定义在外部类的局部位置，在方法中或者代码块中，并且有类名</li>
@@ -932,13 +1100,13 @@ class Cat{    /*    * 懒汉式
 <li>外部类---访问---&gt;局部内部类的成员【访问方式：通过一个方法返回对象，在访问（必须在作用域内）</li>
 <li>如果外部类和局部内部类的成员重名时，默认遵守就近原则，如果想访问外部类的成员，则可以使用（外部类名.this.成员）</li>
 </ol>
-<h3 id="anonymousinserclass">匿名内部类（重点）（AnonymousInserClass）</h3>
-<h4 id="_44">基本语法</h4>
+<h3 id="anonymousinserclass">匿名内部类（重点）（AnonymousInserClass）<a class="headerlink" href="#anonymousinserclass" title="Permanent link">&para;</a></h3>
+<h4 id="_44">基本语法<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h4>
 <p>本质是一个类，同时是个对象，匿名内部类在局部位置中，比如方法，并且没有类名【idealDmo09演示】</p>
-<pre><code class="language-java">new 类/接口(参数类表){    
-   //类体
-};
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">new</span><span class="w"> </span><span class="n">类</span><span class="o">/</span><span class="n">接口</span><span class="p">(</span><span class="n">参数类表</span><span class="p">){</span><span class="w">    </span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">   </span><span class="c1">//类体</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="p">};</span>
+</code></pre></div>
 <ol>
 <li>可以直接访问外部类的所有成员，包括私有的</li>
 <li>可以添加任意访问修饰符，地位等价与成员变量</li>
@@ -949,7 +1117,7 @@ class Cat{    /*    * 懒汉式
 <li>没有static修饰</li>
 <li>如果外部类和内部类的成员重名，内部类访问的话，默认遵循就近原则，如果想访问外部类的成员，则可以使用（外部类名.this.成员）</li>
 </ol>
-<h3 id="_45">静态内部类</h3>
+<h3 id="_45">静态内部类<a class="headerlink" href="#_45" title="Permanent link">&para;</a></h3>
 <ol>
 <li>静态内部类在成员内部类的基础上，存在static修饰</li>
 <li>可以添加任意访问修饰符</li>
@@ -958,18 +1126,18 @@ class Cat{    /*    * 懒汉式
 <li>外部类访问静态类【创建对象再访问 与成员内部类相似 】</li>
 <li>如果外部类和静态内部类的成员重名时，静态内部类时，遵循就近原则，如果想访问外部类的成员，则可以使用（外部类名.成员） </li>
 </ol>
-<h1 id="_46">面向对象到此结束</h1>
-<h1 id="enumeration">枚举（enumeration）</h1>
+<h1 id="_46">面向对象到此结束<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h1>
+<h1 id="enumeration">枚举（enumeration）<a class="headerlink" href="#enumeration" title="Permanent link">&para;</a></h1>
 <p>把具体对象一个一个列举出来的类称为枚举类</p>
 <ol>
 <li>枚举属于一种特殊的类，里面只包含一组有限的特定对象；</li>
 </ol>
-<h2 id="_47">枚举的实现方式</h2>
+<h2 id="_47">枚举的实现方式<a class="headerlink" href="#_47" title="Permanent link">&para;</a></h2>
 <ol>
 <li>自定义枚举</li>
 <li>使用enum关键字</li>
 </ol>
-<h3 id="_48">自定义枚举（与饿汉式相似）</h3>
+<h3 id="_48">自定义枚举（与饿汉式相似）<a class="headerlink" href="#_48" title="Permanent link">&para;</a></h3>
 <ol>
 <li>将构造器私有化</li>
 <li>去掉setxxx方法，防止属性被修改</li>
@@ -977,13 +1145,13 @@ class Cat{    /*    * 懒汉式
 <li>命名规范枚举对象名全都用大写</li>
 <li>枚举对象可以有多个有多个属性</li>
 </ol>
-<h3 id="enum">使用enum关键字</h3>
+<h3 id="enum">使用enum关键字<a class="headerlink" href="#enum" title="Permanent link">&para;</a></h3>
 <ol>
 <li>使用enum代替class</li>
 <li>使用对象名.(参数列表)【注意需要定义在最前面】</li>
 <li>如果具有多个对象使用     ,     进行间隔创建</li>
 </ol>
-<h2 id="enum_1">enum细节</h2>
+<h2 id="enum_1">enum细节<a class="headerlink" href="#enum_1" title="Permanent link">&para;</a></h2>
 <ol>
 <li>当我们使用enum关键词开发开发一个枚举时，默认会继承Enum类，并且为final类</li>
 <li>如果使用无参构造器创建枚举对象，则实参对象和小括号可以省略</li>
@@ -991,7 +1159,7 @@ class Cat{    /*    * 懒汉式
 <li>使用enmu创建 类不能使用extend进行继承，因为在Java底层已经隐式继承了Enum</li>
 <li>可以使用接口</li>
 </ol>
-<h2 id="enmu">enmu类常用方法</h2>
+<h2 id="enmu">enmu类常用方法<a class="headerlink" href="#enmu" title="Permanent link">&para;</a></h2>
 <ol>
 <li>toString:Enum类已经重写过，返回当前对象名，子类可以重写该方法，用于返回对象信息</li>
 <li>name:返回对象名（常量名），子类不能重写</li>
@@ -1000,44 +1168,44 @@ class Cat{    /*    * 懒汉式
 <li>valueOf:将字符串转换枚举对象，要求字符串必须为已有的常量名，否则报异常</li>
 <li>compareTo:比较两个枚举常量的位置号</li>
 </ol>
-<h1 id="annotation">注解（Annotation）</h1>
+<h1 id="annotation">注解（Annotation）<a class="headerlink" href="#annotation" title="Permanent link">&para;</a></h1>
 <ol>
 <li>注解也被称为元数据，，用于修饰解释包类，方法，属性，构造器，局部变量等数据信息</li>
 <li>和注释一样，注解不影响程序逻辑，但注释可以被编译或运行，相当于嵌入在代码中补充信息</li>
 <li>在JavaSE中，注释的使用目的比较简单，例如标记过时功能，忽略警告等，在JavaEE中注解占据了更重要的角色，例如用来配置应用程序的任何切面，代替javaEE旧版中所遗留的代码和xml配置</li>
 <li>使用注释要做前面添加@符号，并搭配修饰符号使用</li>
 </ol>
-<h2 id="_49">修饰符</h2>
+<h2 id="_49">修饰符<a class="headerlink" href="#_49" title="Permanent link">&para;</a></h2>
 <ol>
 <li>@Override:限定莫个方法，是重写父类方法，并注释只用于该方法</li>
 <li>@Dprecated:用于表示某个程序元素以过时</li>
 <li>@SuppressWarnings:抑制编译器警告</li>
 </ol>
 <p>调用语法 ：@SuppressWarnings("all","unchecked");</p>
-<h1 id="_50">元注解</h1>
+<h1 id="_50">元注解<a class="headerlink" href="#_50" title="Permanent link">&para;</a></h1>
 <ol>
 <li>Retention:指定注解的使用范围，SOURCE（编译器使用后直接丢弃的）,CLASS（编译器把注解记录在class文件中，当运行Java程序时，jvm不会保留注释，这是默认）,RUNTIME（编译器把注解记录在class文件中，jvm会保留注解，程序可以通过放射获得注释）</li>
 <li>Taget:指定注解可以在哪里使用</li>
 <li>Documented:指定该注解在javadoc体现</li>
 <li>Inherited:子类会继承父类注释</li>
 </ol>
-<h1 id="exception">异常（Exception）</h1>
+<h1 id="exception">异常（Exception）<a class="headerlink" href="#exception" title="Permanent link">&para;</a></h1>
 <p>数学运行异常</p>
-<pre><code class="language-java">public static void main(String[] args){
-int num1 = 10
-int num2 = 0;
-int res = num1/num2;
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">){</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">num1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">num2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="kt">int</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num1</span><span class="o">/</span><span class="n">num2</span><span class="p">;</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="p">}</span>
+</code></pre></div>
 <p>当执行num1/num2 的时候，造成异常，程序退出</p>
 <p>为了进行程序，出现异常处理机制 try-catch从而保证程序的健壮性</p>
 <ol>
 <li>出错代码块</li>
 <li>ctrl + alt + t </li>
 </ol>
-<h3 id="_51">基本概念</h3>
+<h3 id="_51">基本概念<a class="headerlink" href="#_51" title="Permanent link">&para;</a></h3>
 <p>java语言中，将程序执行中发生的不正常情况称为异常（开发过程语法错误和逻辑错误不是异常）</p>
-<h3 id="_52">执行过程中发生的异常事件可分为两类</h3>
+<h3 id="_52">执行过程中发生的异常事件可分为两类<a class="headerlink" href="#_52" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Error:Java虚拟机无法解决的严重问题。如：jvm系统内部错误，资源耗尽严重情况，比如 ：StackOverflowError[栈溢出]和OOM(out of memory),Error是严重错误，程序崩溃；</li>
 <li>Exception:其它因编程错误或偶然的外在因素导致的一般性问题，可以使用针对性的代码进行处理，例如空指针访问，试图读取不存在的文件，网络链接中断等等，</li>
@@ -1046,7 +1214,7 @@ int res = num1/num2;
 <li>运行时异常，可以不做处理，该异常比较普遍，全处理会影响程序的可读性和运行效率</li>
 <li>编译时异常，是编译器要求必须处理的异常</li>
 </ol>
-<h3 id="_53">常见的运行异常</h3>
+<h3 id="_53">常见的运行异常<a class="headerlink" href="#_53" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>NullPointerException空指针异常，当应用程序试图在需要对象的地方使用null时，抛出异常</p>
@@ -1061,24 +1229,24 @@ int res = num1/num2;
 <p>ClassCastException类型转换异常，当试图强制转换为实例的子类时，抛出该异常。</p>
 </li>
 </ol>
-<p><code>java
-   class A{}
-   Class B extends A {}
-   class C extends A {}
-   main{
-   A b = new B();//向上转型
-       B b2 = (B) b;//向下转型
-       c C2 = (c) b;//b和c无关，会抛出类型转换异常
-   }</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kd">class</span> <span class="nc">A</span><span class="p">{}</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">Class</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="kd">class</span> <span class="nc">C</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="n">main</span><span class="p">{</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="n">A</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">B</span><span class="p">();</span><span class="c1">//向上转型</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span><span class="n">B</span><span class="w"> </span><span class="n">b2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">B</span><span class="p">)</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="c1">//向下转型</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">    </span><span class="n">c</span><span class="w"> </span><span class="n">C2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="c1">//b和c无关，会抛出类型转换异常</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="p">}</span>
+</code></pre></div>
 <ol>
 <li>NumberFormatException数字格式不正确异常，当应用程序试图将字符串转换成数值类型，但是字符串不能转换为适当格式时，抛出异常==》使用异常我们可以确保输入时满足条件数字</li>
 </ol>
-<p><code>java
-   String = "123";//程序无问题
-   //当 String = "老" 该程序异常，无法将”老“字转换为数字类型
-   int num = Integer.parseInt(name);
-   //将String 转为 int</code></p>
-<h3 id="_54">编译异常（了解）</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;123&quot;</span><span class="p">;</span><span class="c1">//程序无问题</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="c1">//当 String = &quot;老&quot; 该程序异常，无法将”老“字转换为数字类型</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="c1">//将String 转为 int</span>
+</code></pre></div>
+<h3 id="_54">编译异常（了解）<a class="headerlink" href="#_54" title="Permanent link">&para;</a></h3>
 <ol>
 <li>SQLExceptiom,操作数据库时，查询表可能发现的异常</li>
 <li>IQEXception，操作文件时，发生的异常</li>
@@ -1087,98 +1255,123 @@ int res = num1/num2;
 <li>EOFException,操作文件，到文件末尾发生的异常，</li>
 <li>illegalArguementException,参数异常</li>
 </ol>
-<h2 id="_55">异常处理机制</h2>
+<h2 id="_55">异常处理机制<a class="headerlink" href="#_55" title="Permanent link">&para;</a></h2>
 <ol>
 <li>try-catch-finally ，程序员在代码中捕获 发生的异常，自行处理</li>
 </ol>
-<p><code>java
-   try{
-   //代码可能异常
-   }catch(Exception e){
-   //捕获异常
-   //当异常发生时，系统将异常封装成exception对象e，传递给catch
-   //得到异常程序后可自己处理，如果无异常，不执行catch代码块    
-   }fianlly{
-       //不管是否发现异常发生，始终执行
-       //通常将释放资源的操作在finally中运行
-   }</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="k">try</span><span class="p">{</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="c1">//代码可能异常</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="p">}</span><span class="k">catch</span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">){</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="c1">//捕获异常</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="c1">//当异常发生时，系统将异常封装成exception对象e，传递给catch</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="c1">//得到异常程序后可自己处理，如果无异常，不执行catch代码块    </span>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="p">}</span><span class="n">fianlly</span><span class="p">{</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="w">    </span><span class="c1">//不管是否发现异常发生，始终执行</span>
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="w">    </span><span class="c1">//通常将释放资源的操作在finally中运行</span>
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="p">}</span>
+</code></pre></div>
 <ol>
 <li>throw ，将发生的异常抛出，交给调用着（方法）来处理，最顶级的处理着是JVM</li>
-</ol></div>
-            </div>
-        </div>
+</ol>
 
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script>
-            var base_url = "..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../js/base.js" defer></script>
-        <script src="../search/main.js" defer></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+
+
+
+                
+              </article>
             </div>
-            <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
+          
+          
         </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022王科文
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
+  
+  
 </div>
-
-    </body>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/wcowin_" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Wcowin" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://space.bilibili.com/1407028951?spm_id_from=333.1007.0.0" target="_blank" rel="noopener" title="space.bilibili.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M488.6 104.1c16.7 18.1 24.4 39.7 23.3 65.7v202.4c-.4 26.4-9.2 48.1-26.5 65.1-17.2 17-39.1 25.9-65.5 26.7H92.02c-26.45-.8-48.21-9.8-65.28-27.2C9.682 419.4.767 396.5 0 368.2V169.8c.767-26 9.682-47.6 26.74-65.7C43.81 87.75 65.57 78.77 92.02 78h29.38L96.05 52.19c-5.75-5.73-8.63-13-8.63-21.79 0-8.8 2.88-16.06 8.63-21.797C101.8 2.868 109.1 0 117.9 0s16.1 2.868 21.9 8.603L213.1 78h88l74.5-69.397C381.7 2.868 389.2 0 398 0c8.8 0 16.1 2.868 21.9 8.603 5.7 5.737 8.6 12.997 8.6 21.797 0 8.79-2.9 16.06-8.6 21.79L394.6 78h29.3c26.4.77 48 9.75 64.7 26.1zm-38.8 69.7c-.4-9.6-3.7-17.4-10.7-23.5-5.2-6.1-14-9.4-22.7-9.8H96.05c-9.59.4-17.45 3.7-23.58 9.8-6.14 6.1-9.4 13.9-9.78 23.5v194.4c0 9.2 3.26 17 9.78 23.5s14.38 9.8 23.58 9.8H416.4c9.2 0 17-3.3 23.3-9.8 6.3-6.5 9.7-14.3 10.1-23.5V173.8zm-264.3 42.7c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.2 6.3-14 9.5-23.6 9.5-9.6 0-17.5-3.2-23.6-9.5-6.1-6.3-9.4-14-9.8-23.2v-33.3c.4-9.1 3.8-16.9 10.1-23.2 6.3-6.3 13.2-9.6 23.3-10 9.2.4 17 3.7 23.3 10zm191.5 0c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.1 6.3-14 9.5-23.6 9.5-9.6 0-17.4-3.2-23.6-9.5-7-6.3-9.4-14-9.7-23.2v-33.3c.3-9.1 3.7-16.9 10-23.2 6.3-6.3 14.1-9.6 23.3-10 9.2.4 17 3.7 23.3 10z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<1135801806@qq.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480v-83.6c0-4 1.5-7.8 4.2-10.7l167.6-182.9c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8l-88.3-44.2C7.1 311.3.3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "search.suggest", "search.highlight", "navigation.expand", "search.share"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      
+        <script src="../javascripts/extra.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
 </html>
