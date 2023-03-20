@@ -13,13 +13,15 @@
         <link rel="canonical" href="https://ansisn.github.io/mkdocs-stduy/js/">
       
       
+        <link rel="prev" href="../%E7%BB%93%E6%9E%84%E4%BD%93/">
+      
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
     
     
       
-        <title>Js - ansisn's note</title>
+        <title>js基础 - ansisn's note</title>
       
     
     
@@ -106,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Js
+              js基础
             
           </span>
         </div>
@@ -181,13 +183,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../docs/Java基础.md" class="md-tabs__link">
+      <a href="../Java%E5%9F%BA%E7%A1%80/" class="md-tabs__link md-tabs__link--active">
         学习笔记
       </a>
     </li>
@@ -259,16 +263,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
       
       
       
@@ -277,7 +281,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           学习笔记
@@ -290,7 +294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../docs/Java基础.md" class="md-nav__link">
+      <a href="../Java%E5%9F%BA%E7%A1%80/" class="md-nav__link">
         java基础
       </a>
     </li>
@@ -304,7 +308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../docs/js.md" class="md-nav__link">
+      <a href="../%E7%BB%93%E6%9E%84%E4%BD%93/" class="md-nav__link">
         数据结构
       </a>
     </li>
@@ -316,11 +320,2101 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../docs/js.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          js基础
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         js基础
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#javascriptjs" class="md-nav__link">
+    一、JavaScript简介(JS)
+  </a>
+  
+    <nav class="md-nav" aria-label="一、JavaScript简介(JS)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1js" class="md-nav__link">
+    1、JS概述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2js" class="md-nav__link">
+    2、浏览器执行解释JS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3js" class="md-nav__link">
+    3、JS的组成
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#js" class="md-nav__link">
+    二、JS基础语法
+  </a>
+  
+    <nav class="md-nav" aria-label="二、JS基础语法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1js_1" class="md-nav__link">
+    1、JS输入输出函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2、变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3、数据类型
+  </a>
+  
+    <nav class="md-nav" aria-label="3、数据类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    简单数据类型
+  </a>
+  
+    <nav class="md-nav" aria-label="简单数据类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1string" class="md-nav__link">
+    1、string(字符串)
+  </a>
+  
+    <nav class="md-nav" aria-label="1、string(字符串)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    *1）、字符串转义符 *
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2）、字符串的长度以及拼接
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    3）、字符串拼接
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2boolean" class="md-nav__link">
+    2、boolean(布尔型)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3undefined" class="md-nav__link">
+    3、Undefined(未定义)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4null" class="md-nav__link">
+    4、Null(空)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l-typeof" class="md-nav__link">
+    l Typeof 可用来获取检测变量的数据类型
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4、数据类型转换
+  </a>
+  
+    <nav class="md-nav" aria-label="4、数据类型转换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1\转换为字符串
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    2\转换为数值型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    3\转换为布尔型
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5、运算符
+  </a>
+  
+    <nav class="md-nav" aria-label="5、运算符">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    1\算术运算符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" class="md-nav__link">
+    2\递增和递减运算符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_3" class="md-nav__link">
+    3\比较运算符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    4\逻辑运算符
+  </a>
+  
+    <nav class="md-nav" aria-label="4\逻辑运算符">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1、逻辑中断
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6、数组
+  </a>
+  
+    <nav class="md-nav" aria-label="6、数组">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_3" class="md-nav__link">
+    1) 、创建数组
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_4" class="md-nav__link">
+    2) 、数组的索引(下标)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-length" class="md-nav__link">
+    3) 、获取数组的长度length
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_2" class="md-nav__link">
+    4）、在数组中增加元素
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#js_1" class="md-nav__link">
+    二、JS函数
+  </a>
+  
+    <nav class="md-nav" aria-label="二、JS函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1function" class="md-nav__link">
+    1、函数(function)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_5" class="md-nav__link">
+    2、函数的声明及调用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3return" class="md-nav__link">
+    3、函数的返回值(return)
+  </a>
+  
+    <nav class="md-nav" aria-label="3、函数的返回值(return)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#breakcontinuereturn" class="md-nav__link">
+    break、continue、return 的区别：
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4arguments" class="md-nav__link">
+    4、函数的Arguments对象
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#js_2" class="md-nav__link">
+    三、JS作用域
+  </a>
+  
+    <nav class="md-nav" aria-label="三、JS作用域">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_4" class="md-nav__link">
+    1、概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_6" class="md-nav__link">
+    2、作用域的分类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_4" class="md-nav__link">
+    3、变量的作用域
+  </a>
+  
+    <nav class="md-nav" aria-label="3、变量的作用域">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_5" class="md-nav__link">
+    1）、全局变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_7" class="md-nav__link">
+    2）、局部变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_5" class="md-nav__link">
+    3）、区别
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4es6" class="md-nav__link">
+    4、块级作用域(ES6)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#js_3" class="md-nav__link">
+    四、JS预解析
+  </a>
+  
+    <nav class="md-nav" aria-label="四、JS预解析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_6" class="md-nav__link">
+    1、概念：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_8" class="md-nav__link">
+    2、变量预解析(变量提升)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_6" class="md-nav__link">
+    3、函数预解析(函数提升)
+  </a>
+  
+    <nav class="md-nav" aria-label="3、函数预解析(函数提升)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_7" class="md-nav__link">
+    1、概念：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_9" class="md-nav__link">
+    2、函数表达式声明调用问题
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#js_4" class="md-nav__link">
+    五、JS对象
+  </a>
+  
+    <nav class="md-nav" aria-label="五、JS对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_8" class="md-nav__link">
+    1、对象的概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2object" class="md-nav__link">
+    2、创建对象(object)
+  </a>
+  
+    <nav class="md-nav" aria-label="2、创建对象(object)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_9" class="md-nav__link">
+    （1）、利用字面量创建对象 {}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-new-object" class="md-nav__link">
+    （2）、利用 new Object 创建对象
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_7" class="md-nav__link">
+    （3）、利用构造函数创建对象
+  </a>
+  
+    <nav class="md-nav" aria-label="（3）、利用构造函数创建对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_10" class="md-nav__link">
+    1）、构造函数的概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_10" class="md-nav__link">
+    2）、通过构造函数创建对象
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_8" class="md-nav__link">
+    3）、构造函数与对象
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4new" class="md-nav__link">
+    4）、New关键字
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    变量、属性、函数、方法总结
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_9" class="md-nav__link">
+    3、对象的调用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-for-in" class="md-nav__link">
+    4、遍历对象属性 for in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#js_5" class="md-nav__link">
+    六、JS内置对象
+  </a>
+  
+    <nav class="md-nav" aria-label="六、JS内置对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_11" class="md-nav__link">
+    1、概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2mdn" class="md-nav__link">
+    2、MDN文档
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3math" class="md-nav__link">
+    3、Math对象
+  </a>
+  
+    <nav class="md-nav" aria-label="3、Math对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_12" class="md-nav__link">
+    （1）、概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2math" class="md-nav__link">
+    （2）、Math的常用属性
+  </a>
+  
+    <nav class="md-nav" aria-label="（2）、Math的常用属性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1mathpi-" class="md-nav__link">
+    1）、Math.PI  -圆周率
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3math_1" class="md-nav__link">
+    （3）、Math的常用函数
+  </a>
+  
+    <nav class="md-nav" aria-label="（3）、Math的常用函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1mathmax-" class="md-nav__link">
+    1）、Math.Max() - 返回最大值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2mathmin-" class="md-nav__link">
+    2）、Math.Min() - 返回最小值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3mathabs-" class="md-nav__link">
+    3）、Math.abs() - 返回绝对值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4mathfloor-" class="md-nav__link">
+    4）、Math.floor() - 向下取整
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5mathceil-" class="md-nav__link">
+    5）、Math.ceil() - 向上取整
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6mathround-" class="md-nav__link">
+    6）、Math.round() - 四舍五入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7mathrandom-" class="md-nav__link">
+    7）、Math.random() - 随机数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4date" class="md-nav__link">
+    4、Date对象
+  </a>
+  
+    <nav class="md-nav" aria-label="4、Date对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_13" class="md-nav__link">
+    （1）、概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2date" class="md-nav__link">
+    （2）、创建Date对象
+  </a>
+  
+    <nav class="md-nav" aria-label="（2）、创建Date对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_14" class="md-nav__link">
+    1）、获取当前时间
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2new-date" class="md-nav__link">
+    2）、new Date() 构造函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_10" class="md-nav__link">
+    （3）、日期格式化
+  </a>
+  
+    <nav class="md-nav" aria-label="（3）、日期格式化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_15" class="md-nav__link">
+    1）、方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_11" class="md-nav__link">
+    2）、格式化年月日
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_11" class="md-nav__link">
+    3）格式化时分秒
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_3" class="md-nav__link">
+    （4）、时间戳
+  </a>
+  
+    <nav class="md-nav" aria-label="（4）、时间戳">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_16" class="md-nav__link">
+    1）、概述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_12" class="md-nav__link">
+    2）、获取当前时间总的毫秒数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-" class="md-nav__link">
+    （5）、倒计时-算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5array" class="md-nav__link">
+    5、Array对象
+  </a>
+  
+    <nav class="md-nav" aria-label="5、Array对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_17" class="md-nav__link">
+    （1）、概述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2array" class="md-nav__link">
+    （2）、判断是否为Array
+  </a>
+  
+    <nav class="md-nav" aria-label="（2）、判断是否为Array">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1arrayisarrayvalue-" class="md-nav__link">
+    1)、Array.isArray(value); -方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2instanceof-" class="md-nav__link">
+    2)、instanceof -运算符
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_12" class="md-nav__link">
+    （3）、添加数组元素
+  </a>
+  
+    <nav class="md-nav" aria-label="（3）、添加数组元素">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1unshift" class="md-nav__link">
+    ①、unshift()函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2push" class="md-nav__link">
+    ②、push()函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3concat" class="md-nav__link">
+    ③、concat() 函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4splice" class="md-nav__link">
+    ④、splice() 函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_4" class="md-nav__link">
+    （4）、删除数组元素
+  </a>
+  
+    <nav class="md-nav" aria-label="（4）、删除数组元素">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1delete" class="md-nav__link">
+    ①、delete
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2pop" class="md-nav__link">
+    ②、pop()函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3shift" class="md-nav__link">
+    ③、shift()函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-_1" class="md-nav__link">
+    （5）、筛选数组-算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6_1" class="md-nav__link">
+    （6）、数组排序
+  </a>
+  
+    <nav class="md-nav" aria-label="（6）、数组排序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1reverse" class="md-nav__link">
+    ①、reverse()函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2sort" class="md-nav__link">
+    ②、sort()函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7array" class="md-nav__link">
+    （7）、获取Array元素索引
+  </a>
+  
+    <nav class="md-nav" aria-label="（7）、获取Array元素索引">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1indexof" class="md-nav__link">
+    ①、indexOf()函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2lastindexof" class="md-nav__link">
+    ②、lastIndexOf()函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#js_6" class="md-nav__link">
+    七、JS的事件函数
+  </a>
+  
+    <nav class="md-nav" aria-label="七、JS的事件函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1is-nan" class="md-nav__link">
+    1、Is NaN();
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#javascript-dom-bom-js-es6-jquery-echartspink500" class="md-nav__link">
+    JavaScript基础语法-dom-bom-js-es6新语法-jQuery-数据可视化echarts黑马pink老师前端入门基础视频教程(500多集)持续
+  </a>
+  
+    <nav class="md-nav" aria-label="JavaScript基础语法-dom-bom-js-es6新语法-jQuery-数据可视化echarts黑马pink老师前端入门基础视频教程(500多集)持续">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    视频选集
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#javascriptjs_1" class="md-nav__link">
+    一、JavaScript简介(JS)
+  </a>
+  
+    <nav class="md-nav" aria-label="一、JavaScript简介(JS)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1js_2" class="md-nav__link">
+    1、JS概述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2js_1" class="md-nav__link">
+    2、浏览器执行解释JS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3js_1" class="md-nav__link">
+    3、JS的组成
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js_7" class="md-nav__link">
+    二、JS基础语法
+  </a>
+  
+    <nav class="md-nav" aria-label="二、JS基础语法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1js_3" class="md-nav__link">
+    1、JS输入输出函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_13" class="md-nav__link">
+    2、变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_13" class="md-nav__link">
+    3、数据类型
+  </a>
+  
+    <nav class="md-nav" aria-label="3、数据类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    简单数据类型
+  </a>
+  
+    <nav class="md-nav" aria-label="简单数据类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1string_1" class="md-nav__link">
+    1、string(字符串)
+  </a>
+  
+    <nav class="md-nav" aria-label="1、string(字符串)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_18" class="md-nav__link">
+    *1）、字符串转义符 *
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_14" class="md-nav__link">
+    2）、字符串的长度以及拼接
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_14" class="md-nav__link">
+    3）、字符串拼接
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2boolean_1" class="md-nav__link">
+    2、boolean(布尔型)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3undefined_1" class="md-nav__link">
+    3、Undefined(未定义)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4null_1" class="md-nav__link">
+    4、Null(空)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l-typeof_1" class="md-nav__link">
+    l Typeof 可用来获取检测变量的数据类型
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_5" class="md-nav__link">
+    4、数据类型转换
+  </a>
+  
+    <nav class="md-nav" aria-label="4、数据类型转换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_19" class="md-nav__link">
+    1\转换为字符串
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_15" class="md-nav__link">
+    2\转换为数值型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_15" class="md-nav__link">
+    3\转换为布尔型
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    5、运算符
+  </a>
+  
+    <nav class="md-nav" aria-label="5、运算符">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_20" class="md-nav__link">
+    1\算术运算符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_16" class="md-nav__link">
+    2\递增和递减运算符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_16" class="md-nav__link">
+    3\比较运算符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_6" class="md-nav__link">
+    4\逻辑运算符
+  </a>
+  
+    <nav class="md-nav" aria-label="4\逻辑运算符">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41_1" class="md-nav__link">
+    4.1、逻辑中断
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6_2" class="md-nav__link">
+    6、数组
+  </a>
+  
+    <nav class="md-nav" aria-label="6、数组">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_21" class="md-nav__link">
+    1) 、创建数组
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_17" class="md-nav__link">
+    2) 、数组的索引(下标)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-length_1" class="md-nav__link">
+    3) 、获取数组的长度length
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_7" class="md-nav__link">
+    4）、在数组中增加元素
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js_8" class="md-nav__link">
+    二、JS函数
+  </a>
+  
+    <nav class="md-nav" aria-label="二、JS函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1function_1" class="md-nav__link">
+    1、函数(function)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_18" class="md-nav__link">
+    2、函数的声明及调用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3return_1" class="md-nav__link">
+    3、函数的返回值(return)
+  </a>
+  
+    <nav class="md-nav" aria-label="3、函数的返回值(return)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#breakcontinuereturn_1" class="md-nav__link">
+    break、continue、return 的区别：
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4arguments_1" class="md-nav__link">
+    4、函数的Arguments对象
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js_9" class="md-nav__link">
+    三、JS作用域
+  </a>
+  
+    <nav class="md-nav" aria-label="三、JS作用域">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_22" class="md-nav__link">
+    1、概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_19" class="md-nav__link">
+    2、作用域的分类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_17" class="md-nav__link">
+    3、变量的作用域
+  </a>
+  
+    <nav class="md-nav" aria-label="3、变量的作用域">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_23" class="md-nav__link">
+    1）、全局变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_20" class="md-nav__link">
+    2）、局部变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_18" class="md-nav__link">
+    3）、区别
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4es6_1" class="md-nav__link">
+    4、块级作用域(ES6)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js_10" class="md-nav__link">
+    四、JS预解析
+  </a>
+  
+    <nav class="md-nav" aria-label="四、JS预解析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_24" class="md-nav__link">
+    1、概念：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_21" class="md-nav__link">
+    2、变量预解析(变量提升)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_19" class="md-nav__link">
+    3、函数预解析(函数提升)
+  </a>
+  
+    <nav class="md-nav" aria-label="3、函数预解析(函数提升)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_25" class="md-nav__link">
+    1、概念：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_22" class="md-nav__link">
+    2、函数表达式声明调用问题
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js_11" class="md-nav__link">
+    五、JS对象
+  </a>
+  
+    <nav class="md-nav" aria-label="五、JS对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_26" class="md-nav__link">
+    1、对象的概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2object_1" class="md-nav__link">
+    2、创建对象(object)
+  </a>
+  
+    <nav class="md-nav" aria-label="2、创建对象(object)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_27" class="md-nav__link">
+    （1）、利用字面量创建对象 {}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-new-object_1" class="md-nav__link">
+    （2）、利用 new Object 创建对象
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_20" class="md-nav__link">
+    （3）、利用构造函数创建对象
+  </a>
+  
+    <nav class="md-nav" aria-label="（3）、利用构造函数创建对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_28" class="md-nav__link">
+    1）、构造函数的概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_23" class="md-nav__link">
+    2）、通过构造函数创建对象
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_21" class="md-nav__link">
+    3）、构造函数与对象
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4new_1" class="md-nav__link">
+    4）、New关键字
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    变量、属性、函数、方法总结
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_22" class="md-nav__link">
+    3、对象的调用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-for-in_1" class="md-nav__link">
+    4、遍历对象属性 for in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js_12" class="md-nav__link">
+    六、JS内置对象
+  </a>
+  
+    <nav class="md-nav" aria-label="六、JS内置对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_29" class="md-nav__link">
+    1、概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2mdn_1" class="md-nav__link">
+    2、MDN文档
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3math_2" class="md-nav__link">
+    3、Math对象
+  </a>
+  
+    <nav class="md-nav" aria-label="3、Math对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_30" class="md-nav__link">
+    （1）、概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2math_1" class="md-nav__link">
+    （2）、Math的常用属性
+  </a>
+  
+    <nav class="md-nav" aria-label="（2）、Math的常用属性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1mathpi-_1" class="md-nav__link">
+    1）、Math.PI  -圆周率
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3math_3" class="md-nav__link">
+    （3）、Math的常用函数
+  </a>
+  
+    <nav class="md-nav" aria-label="（3）、Math的常用函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1mathmax-_1" class="md-nav__link">
+    1）、Math.Max() - 返回最大值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2mathmin-_1" class="md-nav__link">
+    2）、Math.Min() - 返回最小值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3mathabs-_1" class="md-nav__link">
+    3）、Math.abs() - 返回绝对值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4mathfloor-_1" class="md-nav__link">
+    4）、Math.floor() - 向下取整
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5mathceil-_1" class="md-nav__link">
+    5）、Math.ceil() - 向上取整
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6mathround-_1" class="md-nav__link">
+    6）、Math.round() - 四舍五入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7mathrandom-_1" class="md-nav__link">
+    7）、Math.random() - 随机数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4date_1" class="md-nav__link">
+    4、Date对象
+  </a>
+  
+    <nav class="md-nav" aria-label="4、Date对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_31" class="md-nav__link">
+    （1）、概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2date_1" class="md-nav__link">
+    （2）、创建Date对象
+  </a>
+  
+    <nav class="md-nav" aria-label="（2）、创建Date对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_32" class="md-nav__link">
+    1）、获取当前时间
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2new-date_1" class="md-nav__link">
+    2）、new Date() 构造函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_23" class="md-nav__link">
+    （3）、日期格式化
+  </a>
+  
+    <nav class="md-nav" aria-label="（3）、日期格式化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_33" class="md-nav__link">
+    1）、方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_24" class="md-nav__link">
+    2）、格式化年月日
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_24" class="md-nav__link">
+    3）格式化时分秒
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_8" class="md-nav__link">
+    （4）、时间戳
+  </a>
+  
+    <nav class="md-nav" aria-label="（4）、时间戳">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_34" class="md-nav__link">
+    1）、概述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_25" class="md-nav__link">
+    2）、获取当前时间总的毫秒数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-_2" class="md-nav__link">
+    （5）、倒计时-算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5array_1" class="md-nav__link">
+    5、Array对象
+  </a>
+  
+    <nav class="md-nav" aria-label="5、Array对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_35" class="md-nav__link">
+    （1）、概述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2array_1" class="md-nav__link">
+    （2）、判断是否为Array
+  </a>
+  
+    <nav class="md-nav" aria-label="（2）、判断是否为Array">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1arrayisarrayvalue-_1" class="md-nav__link">
+    1)、Array.isArray(value); -方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2instanceof-_1" class="md-nav__link">
+    2)、instanceof -运算符
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_25" class="md-nav__link">
+    （3）、添加数组元素
+  </a>
+  
+    <nav class="md-nav" aria-label="（3）、添加数组元素">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1unshift_1" class="md-nav__link">
+    ①、unshift()函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2push_1" class="md-nav__link">
+    ②、push()函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3concat_1" class="md-nav__link">
+    ③、concat() 函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4splice_1" class="md-nav__link">
+    ④、splice() 函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_9" class="md-nav__link">
+    （4）、删除数组元素
+  </a>
+  
+    <nav class="md-nav" aria-label="（4）、删除数组元素">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1delete_1" class="md-nav__link">
+    ①、delete
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2pop_1" class="md-nav__link">
+    ②、pop()函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3shift_1" class="md-nav__link">
+    ③、shift()函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-_3" class="md-nav__link">
+    （5）、筛选数组-算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6_3" class="md-nav__link">
+    （6）、数组排序
+  </a>
+  
+    <nav class="md-nav" aria-label="（6）、数组排序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1reverse_1" class="md-nav__link">
+    ①、reverse()函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2sort_1" class="md-nav__link">
+    ②、sort()函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7array_1" class="md-nav__link">
+    （7）、获取Array元素索引
+  </a>
+  
+    <nav class="md-nav" aria-label="（7）、获取Array元素索引">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1indexof_1" class="md-nav__link">
+    ①、indexOf()函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2lastindexof_1" class="md-nav__link">
+    ②、lastIndexOf()函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js_13" class="md-nav__link">
+    七、JS的事件函数
+  </a>
+  
+    <nav class="md-nav" aria-label="七、JS的事件函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1is-nan_1" class="md-nav__link">
+    1、Is NaN();
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#javascript-dom-bom-js-es6-jquery-echartspink500_1" class="md-nav__link">
+    JavaScript基础语法-dom-bom-js-es6新语法-jQuery-数据可视化echarts黑马pink老师前端入门基础视频教程(500多集)持续
+  </a>
+  
+    <nav class="md-nav" aria-label="JavaScript基础语法-dom-bom-js-es6新语法-jQuery-数据可视化echarts黑马pink老师前端入门基础视频教程(500多集)持续">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    视频选集
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
