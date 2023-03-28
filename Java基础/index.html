@@ -1468,7 +1468,7 @@
 <li>运行时异常，可以不做处理，该异常比较普遍，全处理会影响程序的可读性和运行效率</li>
 <li>编译时异常，是编译器要求必须处理的异常</li>
 </ol>
-<p><img alt="" src="../assets/Screenshot_20230323_234517_tv.danmaku.bili.jpg" /></p>
+<p><img alt="" src="assets/Screenshot_20230323_234517_tv.danmaku.bili.jpg" /></p>
 <h3 id="runtimeexceptiom">常见的运行异常（RunTimeExceptiom)<a class="headerlink" href="#runtimeexceptiom" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
@@ -1544,7 +1544,7 @@
 <li>如果继承RuntimeException，属于运行异常（一般继承运行异常）</li>
 </ol>
 <h1 id="wrapper">Wrapper类<a class="headerlink" href="#wrapper" title="Permanent link">&para;</a></h1>
-<p><img alt="" src="../assets/Screenshot_20230322_200448_tv.danmaku.bili.jpg" /></p>
+<p><img alt="" src="assets/Screenshot_20230322_200448_tv.danmaku.bili.jpg" /></p>
 <ol>
 <li>jdk5前的手动装箱和拆箱方式</li>
 </ol>
@@ -1599,7 +1599,7 @@
 <li>String 实现了 SeriaLizable 可以实现串行化，可以在网络传输</li>
 <li>a.intern方法返回常量池地址</li>
 </ol>
-<p><img alt="" src="../assets/Screenshot_20230324_083524_tv.danmaku.bili.jpg" /></p>
+<p><img alt="" src="assets/Screenshot_20230324_083524_tv.danmaku.bili.jpg" /></p>
 <h3 id="stringbuffer">StringBuffer类<a class="headerlink" href="#stringbuffer" title="Permanent link">&para;</a></h3>
 <ol>
 <li>代表为可变字符序列，可以对字符串内容进行增删（很多方法与String类相同）</li>
@@ -1724,8 +1724,28 @@
 </li>
 </ol>
 <h2 id="_58">日期类<a class="headerlink" href="#_58" title="Permanent link">&para;</a></h2>
-<h3 id="_59">第一代日期类<a class="headerlink" href="#_59" title="Permanent link">&para;</a></h3>
-<p>​      </p>
+<h3 id="date">第一代日期类Date类<a class="headerlink" href="#date" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="n">Date</span><span class="w"> </span><span class="n">d1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Date</span><span class="p">();</span><span class="c1">//获取当前系统时间</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="n">SimpleDateFormat</span><span class="w"> </span><span class="n">sdf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SimpleDateFormat</span><span class="p">(</span><span class="s">&quot;yyy年MM月dd日 hh:mm:ss E&quot;</span><span class="p">);</span><span class="c1">//日期格式化</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="n">Date</span><span class="w"> </span><span class="n">d2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Date</span><span class="p">(</span><span class="mi">423523</span><span class="p">);</span><span class="c1">//通过毫秒数转成时间（从1970.1.1开始）</span>
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="c1">//可以一个格式化的String 转成Date</span>
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a><span class="c1">//此时输出依然是国外的形式</span>
+<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a><span class="c1">//使用的sdf格式需要和STring的格式一样否则抛出parsException</span>
+<a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1995年01月01日 10:20:30 星期一&quot;</span><span class="p">;</span>
+<a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a><span class="n">Date</span><span class="w"> </span><span class="n">pase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sdf</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+<a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a><span class="c1">//sout(&quot;parse&quot; + sdf.format(parse) );</span>
+</code></pre></div>
+<ol>
+<li>在Java.util和java.sql都存在Date类，sql与数据库有关</li>
+</ol>
+<p><img alt="" src="assets/Screenshot_20230328_200619_tv.danmaku.bili(1).jpg" /></p>
+<h3 id="calender">第二代日期类Calender类<a class="headerlink" href="#calender" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Calender是抽象类，并且构造器是受保护的</li>
+<li>可以通过getInstanse()来获取实例</li>
+<li>提供大量的方法和字段</li>
+</ol>
 
 
 
