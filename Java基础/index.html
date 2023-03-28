@@ -1706,7 +1706,7 @@
 </li>
 <li>
 <p>可以创建对应的类进行对应的操作</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="n">BigInteger</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BigInteger</span><span class="p">(</span><span class="s">&quot;4132523414125512512&quot;</span><span class="p">);</span><span class="c1">//要字符串形式</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="n">BigInteger</span><span class="w"> </span><span class="n">b1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BigInteger</span><span class="p">(</span><span class="s">&quot;4132523414125512512&quot;</span><span class="p">);</span><span class="c1">//要字符串形式</span>
 </code></pre></div>
 </li>
 <li>
@@ -1715,7 +1715,16 @@
 <li>
 <p>操作与BigInteger基本一致</p>
 </li>
+<li>
+<p>divide方法     除法的如果是无限小数，会出现异常，可以使用    BigDecimal.ROUND_CETLING</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="n">BigDecimal</span><span class="w"> </span><span class="n">b2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BigDecimal</span><span class="p">(</span><span class="mf">423423.4325345435436435236</span><span class="p">);</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="n">b1</span><span class="p">.</span><span class="na">divide</span><span class="p">(</span><span class="n">b2</span><span class="p">,</span><span class="n">BigDecimal</span><span class="p">.</span><span class="na">ROUND_CETLING</span><span class="p">);</span>
+</code></pre></div>
+<p>​                       </p>
+</li>
 </ol>
+<h2 id="_58">日期类<a class="headerlink" href="#_58" title="Permanent link">&para;</a></h2>
+<h3 id="_59">第一代日期类<a class="headerlink" href="#_59" title="Permanent link">&para;</a></h3>
 <p>​      </p>
 
 
