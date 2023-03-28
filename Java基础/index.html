@@ -1468,7 +1468,8 @@
 <li>运行时异常，可以不做处理，该异常比较普遍，全处理会影响程序的可读性和运行效率</li>
 <li>编译时异常，是编译器要求必须处理的异常</li>
 </ol>
-<h3 id="_53">常见的运行异常<a class="headerlink" href="#_53" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="../assets/Screenshot_20230323_234517_tv.danmaku.bili.jpg" /></p>
+<h3 id="runtimeexceptiom">常见的运行异常（RunTimeExceptiom)<a class="headerlink" href="#runtimeexceptiom" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>NullPointerException空指针异常，当应用程序试图在需要对象的地方使用null时，抛出异常</p>
@@ -1500,7 +1501,7 @@
 <a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
 <a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="c1">//将String 转为 int</span>
 </code></pre></div>
-<h3 id="_54">编译异常（了解）<a class="headerlink" href="#_54" title="Permanent link">&para;</a></h3>
+<h3 id="_53">编译异常（了解）<a class="headerlink" href="#_53" title="Permanent link">&para;</a></h3>
 <ol>
 <li>SQLExceptiom,操作数据库时，查询表可能发现的异常</li>
 <li>IQEXception，操作文件时，发生的异常</li>
@@ -1509,7 +1510,7 @@
 <li>EOFException,操作文件，到文件末尾发生的异常，</li>
 <li>illegalArguementException,参数异常</li>
 </ol>
-<h2 id="_55">异常处理机制<a class="headerlink" href="#_55" title="Permanent link">&para;</a></h2>
+<h3 id="_54">异常处理机制<a class="headerlink" href="#_54" title="Permanent link">&para;</a></h3>
 <ol>
 <li>try-catch-finally ，程序员在代码中捕获 发生的异常，自行处理</li>
 </ol>
@@ -1526,8 +1527,196 @@
 <a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="p">}</span>
 </code></pre></div>
 <ol>
-<li>throw ，将发生的异常抛出，交给调用着（方法）来处理，最顶级的处理着是JVM，当JVM处理异常时,JVM会输出异常，然后中断程序（默认throw）</li>
+<li>
+<p>throw ，将发生（可以多个）的异常抛出，交给方法的调用者（方法）来处理，最顶级的处理着是JVM，当JVM处理异常时,JVM会输出异常，然后中断程序（默认throw）所抛出的异常必须与父类异常一致，或者子类为父类的子类型。</p>
+</li>
+<li>
+<p>throws 异常处理的一般方式 ，位置：方法声明处</p>
+</li>
+<li>
+<p>throw 手动生成对象关键字，位置：方法体中</p>
+</li>
 </ol>
+<h3 id="_55">自定义异常<a class="headerlink" href="#_55" title="Permanent link">&para;</a></h3>
+<ol>
+<li>定义类：自定义异常类名（自己写）继承Exception或RunTimeException</li>
+<li>如果继承Exception，属于编译异常</li>
+<li>如果继承RuntimeException，属于运行异常（一般继承运行异常）</li>
+</ol>
+<h1 id="wrapper">Wrapper类<a class="headerlink" href="#wrapper" title="Permanent link">&para;</a></h1>
+<p><img alt="" src="../assets/Screenshot_20230322_200448_tv.danmaku.bili.jpg" /></p>
+<ol>
+<li>jdk5前的手动装箱和拆箱方式</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kd">class</span> <span class="nc">Integer</span><span class="p">{</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">args</span><span class="p">){</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">  </span><span class="n">Integer</span><span class="w"> </span><span class="n">integer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Integer</span><span class="p">(</span><span class="n">n1</span><span class="p">);</span><span class="c1">//手动装箱</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">  </span><span class="n">Integer</span><span class="w"> </span><span class="n">integer</span><span class="w"> </span><span class="o">=</span><span class="n">Integer</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">n1</span><span class="p">);</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">integer</span><span class="p">.</span><span class="na">intvalue</span><span class="p">();</span><span class="c1">//手动拆箱</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">n2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">200</span><span class="p">;</span>
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="w">      </span><span class="n">Integer</span><span class="w"> </span><span class="n">integer2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span><span class="c1">//自动装箱</span>
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">n3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">integer2</span><span class="p">;</span><span class="w"> </span><span class="c1">//自动拆箱</span>
+<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>
+<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>
+<p>jdk5以后的自动装箱方式</p>
+</li>
+<li>
+<p>自动装箱底层调用valueOf方法</p>
+</li>
+<li>
+<p>三元运算符是一个整体，可以提升高精度</p>
+</li>
+</ol>
+<h2 id="string">包装类型和String类型的转换<a class="headerlink" href="#string" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">WapperVSString</span><span class="w"> </span><span class="p">{</span><span class="w">    </span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="c1">//包装类 -》String</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="n">Integer</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="c1">//自动装箱     </span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="c1">//1        String str1 = i + &quot;&quot;;</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="c1">//2        String str2 = i.toString();</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="c1">//3        String str3 = String.valueOf(i);</span>
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="c1">//String -&gt; 包装类（Integer）     </span>
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="c1">//1        String str4 = &quot;1234&quot;;</span>
+<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="c1">//2        Integer i2 = Integer.parseInt(str4);</span>
+<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="c1">//自动装箱        Integer i3 = new Integer(str4);</span>
+<a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">i3</span><span class="p">);</span><span class="w">    </span><span class="p">}}</span>
+</code></pre></div>
+<h1 id="_56">常用类<a class="headerlink" href="#_56" title="Permanent link">&para;</a></h1>
+<h2 id="string-stringbuffer-stringbilider">String  类 和StringBuffer 类和StringBilider类<a class="headerlink" href="#string-stringbuffer-stringbilider" title="Permanent link">&para;</a></h2>
+<h3 id="string_1">String类<a class="headerlink" href="#string_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li>String 对象用于保存字符串，也就是一组字符串；</li>
+<li>字符串常量对象是用双引号括起的字符序列</li>
+<li>字符串的字符使用Unicode字符编码，一个字符（不分字母和汉字）占两个字节</li>
+<li>String 类比较常用构造器；</li>
+<li>String 实现了 SeriaLizable 可以实现串行化，可以在网络传输</li>
+<li>a.intern方法返回常量池地址</li>
+</ol>
+<p><img alt="" src="../assets/Screenshot_20230324_083524_tv.danmaku.bili.jpg" /></p>
+<h3 id="stringbuffer">StringBuffer类<a class="headerlink" href="#stringbuffer" title="Permanent link">&para;</a></h3>
+<ol>
+<li>代表为可变字符序列，可以对字符串内容进行增删（很多方法与String类相同）</li>
+<li>StringBufffer是一个容器</li>
+<li>String Buffer是一个final类，不能被继承</li>
+</ol>
+<h4 id="stringbuffer_1">StringBuffer的常用方法<a class="headerlink" href="#stringbuffer_1" title="Permanent link">&para;</a></h4>
+<ol>
+<li>增append</li>
+<li>删delete（start，end）</li>
+<li>改replace(start,end,string)</li>
+<li>查indexof(寻找元素的索引号)</li>
+<li>插insert</li>
+</ol>
+<h3 id="string-vs-stringbuffer">String Vs StringBuffer<a class="headerlink" href="#string-vs-stringbuffer" title="Permanent link">&para;</a></h3>
+<ol>
+<li>String保存的是字符常量，里面的值不能更改，每次String类的更新实际上是跟新地址</li>
+<li>StringBuffer保存的是字符常量，里面的值可以更改，每次跟新实际内容，当字符串长度越界时，会扩容</li>
+</ol>
+<h3 id="stringbuilder">StringBuilder<a class="headerlink" href="#stringbuilder" title="Permanent link">&para;</a></h3>
+<ol>
+<li>一个可变字符序列，吃雷提供一个与StringBuffer兼容的API,但不包装同步（StringBuilder不是线程安全），该类被设计用作StringBuffer的一个简易替换，用在字符串缓冲区的单个线程使用的时候。如果可能，建议优先采用该类，因为大多数实现中，这个效率更快</li>
+<li>在StringBuilder上的主要操作是append和insert方法，可重载这些方法。以介绍任意类型的数据</li>
+</ol>
+<h3 id="_57">对比<a class="headerlink" href="#_57" title="Permanent link">&para;</a></h3>
+<ol>
+<li>string：不可变字符序列。效率低，复用性高；</li>
+<li>StringBuffer:可变字符序列，效率高，线程安全</li>
+<li>StringBuilder:可变字符序列，效率最高，多线程存在风险</li>
+</ol>
+<h2 id="math">Math类<a class="headerlink" href="#math" title="Permanent link">&para;</a></h2>
+<ol>
+<li>abs绝对值</li>
+<li>pow幂</li>
+<li>ceil向上取整</li>
+<li>floor向下取整</li>
+<li>round四舍五入</li>
+<li>sqrt开方</li>
+<li>random求随机数(返回一个0&lt;=x&lt;1的一个随机数)</li>
+<li>max求最大值</li>
+<li>min求最小值</li>
+</ol>
+<h2 id="arrays">Arrays类<a class="headerlink" href="#arrays" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>toString返回数组字符串形式</p>
+</li>
+<li>
+<p>sort排序</p>
+</li>
+<li>
+<p>binarySearch通过二分搜索法进行查找，要求必须排好顺序</p>
+</li>
+<li>
+<p>copyOf数组元素的复制(从arr 数组中复制arr.length个元素，如果复制元素大于原数组长度，就会这后位加多个null，如果长度不合理，则返回NegativeArraysizeException异常)</p>
+</li>
+</ol>
+<p>integer [] mewArr = Arrays.copyOf(arr,arrl.length);</p>
+<ol>
+<li>fill数组元素的填充,将原有元素都替换成填充元素;  </li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">Integer</span><span class="o">[]</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Integer</span><span class="o">[]</span><span class="w"> </span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="n">Arrays</span><span class="p">.</span><span class="na">fill</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="mi">99</span><span class="p">);</span><span class="c1">//都替换成99</span>
+</code></pre></div>
+<ol>
+<li>equals比较两个个数组元素内容是否完成一致</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">boolen</span><span class="w"> </span><span class="n">equaks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="n">arr2</span><span class="p">);</span>
+</code></pre></div>
+<ol>
+<li>asList 将一组值，转换为list（集合）运行类型是Arrays的一个静态内部类</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">asList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;asList=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">asList</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="system">system类<a class="headerlink" href="#system" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>exit(0)退出当前程序</p>
+</li>
+<li>
+<p>arraycopy复制数组元素，比较适合底层调用，一般使用Arrays.copyOf完成数组</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="kt">int</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="n">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">};</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="kt">int</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="n">dest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">[</span><span class="mi">3</span><span class="o">]</span><span class="p">;</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="n">System</span><span class="p">.</span><span class="na">arraycopy</span><span class="p">(</span><span class="n">src</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">dest</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span><span class="c1">//被复制数组，下标，复制数组，下标，复制个数</span>
+</code></pre></div>
+<ol>
+<li>
+<p>currentTimeMilens:返回当前的时间与1970.1.1的毫秒数；</p>
+</li>
+<li>
+<p>gc:运行垃圾回收机制</p>
+</li>
+</ol>
+<h2 id="bigintegerbigdecimal">BigInteger和BigDecimal介绍<a class="headerlink" href="#bigintegerbigdecimal" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>BigInteger适合保存比较大的元素</p>
+</li>
+<li>
+<p>在对BigInteger进行加减乘除需要使用对应的方法</p>
+</li>
+<li>
+<p>可以创建对应的类进行对应的操作</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="n">BigInteger</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BigInteger</span><span class="p">(</span><span class="s">&quot;4132523414125512512&quot;</span><span class="p">);</span><span class="c1">//要字符串形式</span>
+</code></pre></div>
+</li>
+<li>
+<p>BigDecimaL适合保存精度最高的浮点数</p>
+</li>
+<li>
+<p>操作与BigInteger基本一致</p>
+</li>
+</ol>
+<p>​      </p>
 
 
 
