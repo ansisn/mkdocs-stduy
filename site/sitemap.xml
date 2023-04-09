@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://ansisn.github.io/mkdocs-stduy/</loc>
+         <lastmod>2023-04-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ansisn.github.io/mkdocs-stduy/Java%E5%9F%BA%E7%A1%80/</loc>
+         <lastmod>2023-04-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ansisn.github.io/mkdocs-stduy/js/</loc>
+         <lastmod>2023-04-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ansisn.github.io/mkdocs-stduy/%E7%BB%93%E6%9E%84%E4%BD%93/</loc>
+         <lastmod>2023-04-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+</urlset>

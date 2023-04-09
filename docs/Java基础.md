@@ -1,4 +1,8 @@
+<a>[韩顺平-哔哩哔哩_Bilibili](https://search.bilibili.com/all?vt=65043380&keyword=韩顺平&from_source=webtop_search&spm_id_from=333.1007&search_source=3)</a>
+
 # Java基础
+
+
 
 一、JDK是什么？
 1.JDK全称Java Development Kit 中文意思是Java 开发工具包
@@ -24,17 +28,33 @@ path  = %JAVA_HOME%bin
 
 #### 常用的几个命令操作有那些？
 
-cd
+copy:将一份文件或多份文件复制到另一个位置
 
-md
+ren:重命名文件
 
-rd
+rd：删除一个目录
 
-del 
+/s不仅删除目录本身，还删除目录下的内容
 
-cd..
+/Q安静模式，不询问是否删除
 
-cd/
+del：删除一个或数个文件
+
+#### cmd的常见的命令
+
+cd ../:返回上一目录
+
+cd /?     //获取使用帮助
+
+cd \       //跳转到硬盘的根目录
+
+cd C:\WINDOWS  //跳转到当前硬盘的其他文件
+
+d:        //跳转到其他硬盘
+
+cd /d e:\software    //跳转到其他硬盘的其他文件夹，注意此处必须加/d参数。否则无法跳转。
+
+cd..      //跳转到上一层目录
 
 #### 创建类 
 
@@ -1044,7 +1064,11 @@ java语言中，将程序执行中发生的不正常情况称为异常（开发�
 
 
 
-### 常见的运行异常
+![](assets/Screenshot_20230323_234517_tv.danmaku.bili.jpg)
+
+
+
+### 常见的运行异常（RunTimeExceptiom)
 
 1. NullPointerException空指针异常，当应用程序试图在需要对象的地方使用null时，抛出异常
 
@@ -1087,7 +1111,7 @@ java语言中，将程序执行中发生的不正常情况称为异常（开发�
 
 
 
-## 异常处理机制
+### 异常处理机制
 
 
 
@@ -1109,85 +1133,453 @@ java语言中，将程序执行中发生的不正常情况称为异常（开发�
 
    
 
-2. throw ，将发生的异常抛出，交给调用着（方法）来处理，最顶级的处理着是JVM，当JVM处理异常时,JVM会输出异常，然后中断程序（默认throw）
+2. throw ，将发生（可以多个）的异常抛出，交给方法的调用者（方法）来处理，最顶级的处理着是JVM，当JVM处理异常时,JVM会输出异常，然后中断程序（默认throw）所抛出的异常必须与父类异常一致，或者子类为父类的子类型。
 
+3. throws 异常处理的一般方式 ，位置：方法声明处
 
+4. throw 手动生成对象关键字，位置：方法体中
 
 
 
+### 自定义异常
 
+1. 定义类：自定义异常类名（自己写）继承Exception或RunTimeException
+2. 如果继承Exception，属于编译异常
+3. 如果继承RuntimeException，属于运行异常（一般继承运行异常）
 
 
 
 
 
+# Wrapper类
 
+![](assets/Screenshot_20230322_200448_tv.danmaku.bili.jpg)
 
 
 
+1. jdk5前的手动装箱和拆箱方式
 
+   ```java
+   class Integer{
+     public static void main(String args){
+     int n1 = 100;
+     Integer integer = new Integer(n1);//手动装箱
+     Integer integer =Integer.valueOf(n1);
+         
+     int i = integer.intvalue();//手动拆箱
+         
+         int n2 = 200;
+         Integer integer2 = n2;//自动装箱
+         int n3 = integer2; //自动拆箱
+         
+     }
+   }
+   ```
 
+   
 
+2. jdk5以后的自动装箱方式
 
+3. 自动装箱底层调用valueOf方法
 
+4. 三元运算符是一个整体，可以提升高精度
 
 
 
+## 装箱和拆箱机制
 
 
 
+```java
+public class WapperVSString {    
+public static void main(String[] args) {  
+//包装类 -》String
+Integer i = 100;//自动装箱     
+//1        String str1 = i + "";
+//2        String str2 = i.toString();
+//3        String str3 = String.valueOf(i);
+//String -> 包装类（Integer）     
+//1        String str4 = "1234";
+//2        Integer i2 = Integer.parseInt(str4);
+//自动装箱        Integer i3 = new Integer(str4);
+System.out.println(i3);    }}
+```
 
+# 常用类
 
+## String  类 和StringBuffer 类和StringBilider类
 
+### String类
 
+1. String 对象用于保存字符串，也就是一组字符串；
+2. 字符串常量对象是用双引号括起的字符序列
+3. 字符串的字符使用Unicode字符编码，一个字符（不分字母和汉字）占两个字节
+4. String 类比较常用构造器；
+5. String 实现了 SeriaLizable 可以实现串行化，可以在网络传输
+6. a.intern方法返回常量池地址
 
 
 
+![](assets/Screenshot_20230326_093953_tv.danmaku.bili.jpg)
 
 
 
+### StringBuffer类
 
+1. 代表为可变字符序列，可以对字符串内容进行增删（很多方法与String类相同）
+2. StringBufffer是一个容器
+3. String Buffer是一个final类，不能被继承
 
+  
 
+#### StringBuffer的常用方法
 
+1. 增append
+2. 删delete（start，end）
+3. 改replace(start,end,string)
+4. 查indexof(寻找元素的索引号)
+5. 插insert
 
+### String Vs StringBuffer
 
+1. String保存的是字符常量，里面的值不能更改，每次String类的更新实际上是跟新地址
+2. StringBuffer保存的是字符常量，里面的值可以更改，每次跟新实际内容，当字符串长度越界时，会扩容
 
 
 
+### StringBuilder
 
+1. 一个可变字符序列，吃雷提供一个与StringBuffer兼容的API,但不包装同步（StringBuilder不是线程安全），该类被设计用作StringBuffer的一个简易替换，用在字符串缓冲区的单个线程使用的时候。如果可能，建议优先采用该类，因为大多数实现中，这个效率更快
+2. 在StringBuilder上的主要操作是append和insert方法，可重载这些方法。以介绍任意类型的数据
 
 
 
+### 对比
 
+1. string：不可变字符序列。效率低，复用性高；
+2. StringBuffer:可变字符序列，效率高，线程安全
+3. StringBuilder:可变字符序列，效率最高，多线程存在风险
 
+## Math类
 
+1. abs绝对值
+2. pow幂
+3. ceil向上取整
+4. floor向下取整
+5. round四舍五入
+6. sqrt开方
+7. random求随机数(返回一个0<=x<1的一个随机数)
+8. max求最大值
+9. min求最小值
 
 
 
+## Arrays类
 
+1. toString返回数组字符串形式
 
+2. sort排序
 
+3. binarySearch通过二分搜索法进行查找，要求必须排好顺序
 
+4. copyOf数组元素的复制(从arr 数组中复制arr.length个元素，如果复制元素大于原数组长度，就会这后位加多个null，如果长度不合理，则返回NegativeArraysizeException异常)
 
+   integer [] mewArr = Arrays.copyOf(arr,arrl.length);
 
+5. fill数组元素的填充,将原有元素都替换成填充元素;  
 
+   ```java
+   Integer[] num = new Integer[] (9,3,2);
+   Arrays.fill(num,99);//都替换成99
+   ```
 
+6. equals比较两个个数组元素内容是否完成一致
 
+   ```java
+   boolen equaks = Arrays.equals(arr,arr2);
+   ```
 
+7. asList 将一组值，转换为list（集合）运行类型是Arrays的一个静态内部类
 
+   ```java
+   List<Integer> asList = Arrays.asList(2,3,4,5,6,1);
+   System.out.println("asList=" + asList);
+   ```
 
+   
 
+##   system类
 
+1. exit(0)退出当前程序
 
+2. arraycopy复制数组元素，比较适合底层调用，一般使用Arrays.copyOf完成数组
 
+   ```java
+   int [] src = {1,2,3};
+   int [] dest = new int [3];
+   System.arraycopy(src,0,dest,0,3);//被复制数组，下标，复制数组，下标，复制个数
+   ```
 
+3. currentTimeMilens:返回当前的时间与1970.1.1的毫秒数；
 
+4. gc:运行垃圾回收机制
 
 
 
 
 
+## BigInteger和BigDecimal介绍
+
+1. BigInteger适合保存比较大的元素
+
+   1. 在对BigInteger进行加减乘除需要使用对应的方法
+
+   2. 可以创建对应的类进行对应的操作
+
+      ```java
+      BigInteger b1 = new BigInteger("4132523414125512512");//要字符串形式
+      ```
+
+      
+
+   
+
+2. BigDecimaL适合保存精度最高的浮点数
+
+   1.   操作与BigInteger基本一致
+
+   2. divide方法     除法的如果是无限小数，会出现异常，可以使用    BigDecimal.ROUND_CETLING
+
+      ```java
+      BigDecimal b2 = new BigDecimal(423423.4325345435436435236);
+      b1.divide(b2,BigDecimal.ROUND_CETLING);
+      ```
+
+      ​                       
+
+## 日期类
+
+### 第一代日期类Date类
+
+```java
+Date d1 = new Date();//获取当前系统时间
+SimpleDateFormat sdf = new SimpleDateFormat("yyy年MM月dd日 hh:mm:ss E");//日期格式化
+Date d2 = new Date(423523);//通过毫秒数转成时间（从1970.1.1开始）
+
+//可以一个格式化的String 转成Date
+//此时输出依然是国外的形式
+//使用的sdf格式需要和STring的格式一样否则抛出parsException
+String s = "1995年01月01日 10:20:30 星期一";
+Date pase = sdf.parse(s);
+//sout("parse" + sdf.format(parse) );
+```
+
+1. 在Java.util和java.sql都存在Date类，sql与数据库有关
+
+
+
+![](assets/Screenshot_20230328_200619_tv.danmaku.bili(1).jpg)
+
+
+
+### 第二代日期类Calender类
+
+1. Calender是抽象类，并且构造器是受保护的
+
+2. 可以通过getInstanse()来获取实例
+
+   ```java
+   Calender c = Calender.getinstance();
+   ```
+
+   
+
+3. 提供大量的方法和字段
+
+4. Calender没有提供的对应的类，需要自己组合
+
+5. 如果需要24小时进制，将Calender.HOUR改成Calender.HOUR_OF_DAY
+
+
+
+### 第三代日期
+
+1. 可变性：像日期和时间这样的类应该不可变的
+
+2. 偏移性：DATe中的年份是从1900开始的，而月份都从0开始
+
+3. 格式化：格式化只对Date有用，Calender则不行
+
+4. 此外，它们也不是线程安全的，不能处理闰秒（每隔2天，多出一秒）
+
+5. jdk8加入了LocalDate(只有年月日)，LocalTime(时分秒)，LocalDateTime（年月日时分秒）；
+
+  
+  
+  ```java
+  DatefoRmatter d = DatefoRmatter.ofPattren("yyy年MM月dd日 HH 小时 mm分钟 ss秒");
+  //格式化
+  String str =d.format(日期对象);
+  ```
+  
+6. 提供大量的plus 和mius方法可以对当前时间进行加减
+
+7. instant时间戳
+
+   类似于Date
+
+   提供一系列和Date类转换的方式
+
+   instant->Date:
+
+   Date date = Date.from(instant);
+
+   Date->instant
+
+   Instant instant = date.toInstant();
+
+   ```java
+   Instant now = Instant.now();//获取当前时间戳
+   //sout(now);
+   Date date = Date.from(now);//通过form可以转成Date
+   //3.通过 date的toInstant()可以把date转成 Instant对象
+   Instant instant = date .toInstant();
+   ```
+
+
+
+
+# 集合
+
+### 集合框架体系
+
+Java的集合类横夺，主要分为![](assets/Screenshot_20230331_002043_tv.danmaku.bili.jpg)
+
+
+
+![](assets/Screenshot_20230331_171910_tv.danmaku.bili.jpg)
+
+
+
+![](assets/Screenshot_20230331_171845_tv.danmaku.bili.jpg)
+
+## collection接口和常用方法
+
+1. collection实现子类可以存放多个元素，每个元素可以是Object
+2. 有些collection的实现类，可以存放重复的元素，有些不可以
+3. 有些collection的实现类，有些是有序，有些不是有序
+4. collection接口没有直接的实现子类，是通过它的子接口set和List来实现的
+
+### 迭代器
+
+1. collection 接口遍历元素方式 -> 使用迭代器（iterator）
+2. iterator对象称为迭代器，主要用于遍历 collection 集合中的元素
+3. 所有实现了collection接口的集合类都有一个literator()方法，用以返回一个实现了literator接口的对象，即可以返回一个迭代器
+4. literator 仅用于遍历集合，literator本身并不存在放对象
+5. 迭代器的执行原理   literator iterator = coll.iterator(); 得到一个迭代器 
+6. 1）Iterator对象称为迭代器，主要用于遍历Collection集合中的元素。
+   2）所有实现了Collection接口的集合类都有一个iterator()方法，用以返回一个实现了Iterator接口的对象，即可以返回一个迭代器。
+   3）Iterator仅用于遍历集合，Iterator本身并不存放对象。
+   ————————————————
+   原文链接：https://blog.csdn.net/sheng0113/article/details/122712947
+
+#### 迭代器的方法
+
+1. hasNext： 通过下移来实现获取元素 （链表）
+
+2. next：返回下一个元素
+
+3. 在调用iterator.next()方法之前必须要调用iterator.hasNext()进行检测，若不调用，且下一条记录无效（指针为空），直接调用it.next()会抛出NoSuchElementException异常
+
+4. while 循环 itit 快捷键
+
+5. ctrl + j   显示所有快捷键
+
+6. ```java
+   for(Object obj : col)
+   {    System.out.println(obj);//增强for 底层为迭代器
+       //快捷键 I
+   }
+   ```
+
+
+
+### List接口的方法
+
+1. ```java
+   List list = new ArrayList();      
+   list.add("jack");       list.add(100);//增加
+   list.add(true);   
+   System.out.println("list" + list);    
+   list.remove(true);//删除    
+   System.out.println("list" + list);
+   System.out.println(list.contains("jack"));//查找元素      
+   System.out.println(list.size());//2  获取元素个数  
+System.out.println(list.isEmpty()); //是否为空  
+   list.clear();//清空
+   list.set();//修改元素
+   // list.addAll(集合);  增加多个元素 
+   //removeALl（集合）；删除多个元素
+   //index为整型
+   list.add(index,new obj);//放索引位置，元素
+   list.lastindexof();//返回obj在当前集合中末次出现的位置
+   list.set(index,new obj)//替换
+   list.remove(index); //移除索引位置
+   list.sublist(statindex,toindex);//返回从statindex到toindex
+   ```
+   
+1. 可以通过序列号进行取出 List.get( index );
+
+
+
+#### Arraylist（顺序表）的注意事项
+
+1. peermits all elements ,including null,Arraylist ，可以加入 null 并且多个
+2. ArrayList 是由数组来实现的数据存储的
+3. Arraylist基本等同于vector ， 除了Arraylist是线程不安全（执行效率不高）看源码，在多线程的情况下，不建议使用ArrayList
+
+
+
+#### vector的基本介绍
+
+1. vector 底层是一个对象数组
+2. vector是线程同步的，即线程安全，vector的操作方法带有synchroonized
+3. 在开发者，需要线程同步安全时，考虑又vector
+4. vector可以通过构造器改变capacityIncrement扩容大小
+
+![](assets/Snipaste_2023-04-05_18-37-05.png)
+
+​                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+
+#### LinkList（双向链表）
+
+1. LinkList 底层维护的是一个双向链表
+
+
+
+### Set接口（图和二叉树）
+
+1. set接口的实现类对象，不能存放重复的元素，可以添加一个null
+2. set的添加元素的顺序不是一致（下滑）的（通过地址（哈希值）），但是输出顺序是一致的
+
+
+
+#### HashSet
+
+1. hashset的底层是hashmap
+2. 添加一个元素时，先得到hash值，通过运算会转成 索引值
+3. 找到存储数据表table,看这个索引位置是否为已有元素
+4. 如果没有，直接添加
+5. 如果有，调用equals比较，如果相同，就放弃添加，否则反之
+6. 在Java8中，如果一条链表元素个数超过TREEIFE_THRESHOLD(默认为8)，并且table的大小>=MIN_TREEIFY_CAPACITY(默认64)就会转换成红黑树；	
+
+
+
+#### HaseSet
+
+1. HashSet底层是HashMap,第一次添加时，table数组扩容到16，临界值（threshold）是16*加载因子（loadFactor）是0.75 = 12
+2. 如果table数组达到临界值 12，就会扩容到16*2=32，新的临界值就是32*  * 0.73=24，依次类推
+3. 在Java8中，如果一条链表的元素个数达到TREEIF_THRESHOLD(默认是8)，并且table的大小》= MIN_TREEIFY_CAPACITY(默认 64)就会变化成红黑树，否则采用数组扩容机制
 
 
 
