@@ -1218,7 +1218,7 @@ System.out.println(i3);    }}
 5. String 实现了 SeriaLizable 可以实现串行化，可以在网络传输
 6. a.intern方法返回常量池地址
 
-
+![](assets/Screenshot_20230324_083524_tv.danmaku.bili.jpg)
 
 ![](assets/Screenshot_20230326_093953_tv.danmaku.bili.jpg)
 
@@ -1469,6 +1469,8 @@ Java的集合类横夺，主要分为![](assets/Screenshot_20230331_002043_tv.da
 2. 有些collection的实现类，可以存放重复的元素，有些不可以
 3. 有些collection的实现类，有些是有序，有些不是有序
 4. collection接口没有直接的实现子类，是通过它的子接口set和List来实现的
+5. 方法：add(); reverse(); sort();swap();shuffle();（随机打乱排序）max();min();frequency();(指定元素出现的次数);copy();replaceALL();
+6. 存在比较器：匿名内部类（comparator）
 
 ### 迭代器
 
@@ -1496,6 +1498,8 @@ Java的集合类横夺，主要分为![](assets/Screenshot_20230331_002043_tv.da
 5. ctrl + j   显示所有快捷键
 
 6. ```java
+     Iterator iterator = col.iterator();
+      
    for(Object obj : col)
    {    System.out.println(obj);//增强for 底层为迭代器
        //快捷键 I
@@ -1557,7 +1561,7 @@ System.out.println(list.isEmpty()); //是否为空
 
 
 
-### Set接口（图和二叉树）
+### Set接口（哈希表和红黑树）
 
 1. set接口的实现类对象，不能存放重复的元素，可以添加一个null
 2. set的添加元素的顺序不是一致（下滑）的（通过地址（哈希值）），但是输出顺序是一致的
@@ -1575,13 +1579,190 @@ System.out.println(list.isEmpty()); //是否为空
 
 
 
-#### HaseSet
+#### HashSet扩容
 
 1. HashSet底层是HashMap,第一次添加时，table数组扩容到16，临界值（threshold）是16*加载因子（loadFactor）是0.75 = 12
 2. 如果table数组达到临界值 12，就会扩容到16*2=32，新的临界值就是32*  * 0.73=24，依次类推
 3. 在Java8中，如果一条链表的元素个数达到TREEIF_THRESHOLD(默认是8)，并且table的大小》= MIN_TREEIFY_CAPACITY(默认 64)就会变化成红黑树，否则采用数组扩容机制
+4. 只要链表结点数 +哈希数组数大于 临界值就会进行扩容；
+
+
+
+#### LinkedHashSet
+
+1. 继承了HashSet,底层是一个LinkedHashMap,维护了一个hash表和双向链表
+2. 每个结点都有pre和next属性
+3. LinkedHashSet加入顺序和取出顺序一致
+
+
+
+## Map接口
+
+1. Map与Collection并列存在。用于保存具有映射关系的数据：Key-Value
+2. Map中的key和value可以用任何引用类型的数据，会封装成HashMap$Node对象中
+3. Map中的key不可以重复，原因于HashSet一样
+4. Map中的Value可以被重复,当key相同时会被覆盖
+5. Map中的key   ,value 都可以设为null，key只能存在一个null
+6. 常用的String类可以作为Map中的Key
+7. key和Value之间存在单向一对一关系，可以通过指定key找到value
+
+
+
+### Map底层分析
+
+1. K-V 最后是HashMap$Node node =newNode(hash,key,value,null)
+
+2. k-v 为了方便程序员遍历，还会创建EntrySet集合，该集合存在的元素类型Entry,面向一个Entry对象就有k,v EntrySet<Entry<K,V>>  即 transient Set<Map,Entry<K,V>> entrySet;
+
+3. entrySet中，定义的类型是Map.Entry,但实际上存放的还是HashMap$Node
+
+4. Node实现了MapEntry接口，定义了一个内部类entry,可以理解为向上转型
+
+5. 当把HashMap$Node对象存在entrySet就方便我们的遍历，因为Map,Entry提供了K getKey ,  V
+
+    getValue
+
+
+
+### Map接口的常用方法
+
+1. map.put(key,value);   添加元素
+2. map.remove(key,value)  || map.remove(key)；根据键删除映射关系
+3. Object obj = map.get(key)；根据键获得值，返回的是object对象
+4. map.size():获取元素个数;
+5. map.isEmpty();判断是否为空，返回布尔值
+6. cleae();  清空表
+7. containsKey(); 查找键是否存在
+
+
+
+### Map接口的六大遍历方式
+
+1.
+
+```java
+//第一组：先取出所有的key  通过key找到对应的value
+Set keyset = map.kepSet();
+//(1)增强for
+for(Object key : keyset){
+    System.out.println(key + "-" + map.get(key));
+}
+//(2)迭代器
+Iterator iterator = keyset.iterator();
+while(iterator.hasNext()){
+    Object key = iterator.next();
+    System.out.println(key + "-" + map.get(key));
+}
+
+```
+
+2. 
+
+```java
+//第二组：把所有的values取出
+Collection values = map.values();
+//这里可以使用所有的Collection使用的遍历方法
+//（1）增强for
+for(Object value : values){
+    System.out.println(value);
+}
+//(2)迭代器
+Iterator = iterator2 = values.iterator();
+while(iterator2.hasNext()){
+    Object value = iterator2.next();
+    System.out.println(value);
+}
+
+```
+
+3.
+
+```java
+//第三组：通过EntrySet 来获取 k-v
+Set entrySet = map.entrySet();//EntrySet<Map.Entrey<k,v>>
+//(1)增强for 
+for(Object entry : entrySet){
+    //将entry 转成 Map.Entry
+    Map.Entry m = (Map.Entry)entry;
+     System.out.println(m.getKey() + m.getValue());
+}
+//(2)迭代器
+Iterator = iterator2 = entreySet.iterator();
+while(iterator3.hasNext()){
+    Object next = iterator3.next();
+    Map.Entry m = (Map.Entry) entry;//向下转型调用
+    //System.out.println(net.getclass);//编译类型
+  System.out.println(m.getKey() + m.getValue())
+}
+
+```
+
+1. containsKey:查找键是否存在
+2. KeySet:获取所有键
+3. entrySet :获取所有关系 k-v
+4. values:获取所有的值
+
+
+
+### HashMap
+
+1. 没有实现同步，线程不安全，方法没有做同步互斥操作，没有synchronized
+2. 扩容机制于HashSet相同
+
+
+
+### Map接口实现类—Hashtable
+
+1. 存放的元素是键值对： k-v
+2. hashtable的键和值都不能为null,否则抛出NullPointerException
+3. 使用方法和hashmap一样
+4. hashtable是线程安全的，hashmap是线程不安全的
+5. 底层有数组Hashtable$Entry[]初始化大小为11；
+6. 临界值 threshold：8 = 11*0.75
+7. 扩容    =  *2+1
+
+### properties
+
+1. 继承hashtable
+
+
+
+![](assets/Snipaste_2023-04-17_09-04-50.png)
 
 
 
 
 
+### TreeSet
+
+1. 当我们使用无参构造器，创建TreeSet时，仍然是无序的
+2. 使用TreeSet提供一个构造器，可以传入一个比较器（匿名内部类）底层是TreeMap
+3.  ![](assets/Snipaste_2023-04-17_16-25-23.png)
+
+
+
+
+
+### TreeMap
+
+1. 使用默认构造器，是无序的
+2. 可以通过匿名内部类来牌序
+
+
+
+# 泛型
+
+### 介绍
+
+1. 泛型又称参数类型，是jdk5出现的新的特征，解决数据类型的安全性问题
+2. 在类声明或实列化时只要指定好需要的具体的类型即可
+3. Java泛型可以保证如果程序在编译时没发出警告，运行时就不会产生ClassCastException异常。同时，代码更加简洁，健壮
+4. 泛型的作用是：可以在类声明时通过一个标识表示类中某个属性的类型，或者是某个方法的返回值的类型，或者是参数类型
+
+### 声明
+
+1. interface 接口 <T>{} 和 class 类<K,V>{}
+2. 其中T,K,V不表示值，表示类型
+3. 一般使用T,type的缩写
+4. 可以接受泛型的子类型
+5. 可以使用简写 List<A> list = new ArrayLise<>();省略运行类型的泛型
