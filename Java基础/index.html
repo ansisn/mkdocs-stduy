@@ -1622,6 +1622,7 @@
 <li>String 实现了 SeriaLizable 可以实现串行化，可以在网络传输</li>
 <li>a.intern方法返回常量池地址</li>
 </ol>
+<p><img alt="" src="../assets/Screenshot_20230324_083524_tv.danmaku.bili.jpg" /></p>
 <p><img alt="" src="../assets/Screenshot_20230326_093953_tv.danmaku.bili.jpg" /></p>
 <h3 id="stringbuffer">StringBuffer类<a class="headerlink" href="#stringbuffer" title="Permanent link">&para;</a></h3>
 <ol>
@@ -1838,6 +1839,8 @@
 <li>有些collection的实现类，可以存放重复的元素，有些不可以</li>
 <li>有些collection的实现类，有些是有序，有些不是有序</li>
 <li>collection接口没有直接的实现子类，是通过它的子接口set和List来实现的</li>
+<li>方法：add(); reverse(); sort();swap();shuffle();（随机打乱排序）max();min();frequency();(指定元素出现的次数);copy();replaceALL();</li>
+<li>存在比较器：匿名内部类（comparator）</li>
 </ol>
 <h3 id="_63">迭代器<a class="headerlink" href="#_63" title="Permanent link">&para;</a></h3>
 <ol>
@@ -1870,13 +1873,15 @@
 <p>ctrl + j   显示所有快捷键</p>
 </li>
 <li>
-<p><code>java
-   for(Object obj : col)
-   {    System.out.println(obj);//增强for 底层为迭代器
-       //快捷键 I
-   }</code></p>
+<p>```java
+     Iterator iterator = col.iterator();</p>
 </li>
 </ol>
+<p>for(Object obj : col)
+   {    System.out.println(obj);//增强for 底层为迭代器
+       //快捷键 I
+   }
+   ```</p>
 <h3 id="list">List接口的方法<a class="headerlink" href="#list" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
@@ -1924,7 +1929,7 @@ System.out.println(list.isEmpty()); //是否为空
 <ol>
 <li>LinkList 底层维护的是一个双向链表</li>
 </ol>
-<h3 id="set">Set接口（图和二叉树）<a class="headerlink" href="#set" title="Permanent link">&para;</a></h3>
+<h3 id="set">Set接口（哈希表和红黑树）<a class="headerlink" href="#set" title="Permanent link">&para;</a></h3>
 <ol>
 <li>set接口的实现类对象，不能存放重复的元素，可以添加一个null</li>
 <li>set的添加元素的顺序不是一致（下滑）的（通过地址（哈希值）），但是输出顺序是一致的</li>
@@ -1932,12 +1937,354 @@ System.out.println(list.isEmpty()); //是否为空
 <h4 id="hashset">HashSet<a class="headerlink" href="#hashset" title="Permanent link">&para;</a></h4>
 <ol>
 <li>hashset的底层是hashmap</li>
-<li>添加一个元素时，先得到hash值，会转成 索引值</li>
+<li>添加一个元素时，先得到hash值，通过运算会转成 索引值</li>
 <li>找到存储数据表table,看这个索引位置是否为已有元素</li>
 <li>如果没有，直接添加</li>
 <li>如果有，调用equals比较，如果相同，就放弃添加，否则反之</li>
 <li>在Java8中，如果一条链表元素个数超过TREEIFE_THRESHOLD(默认为8)，并且table的大小&gt;=MIN_TREEIFY_CAPACITY(默认64)就会转换成红黑树；  </li>
 </ol>
+<h4 id="hashset_1">HashSet扩容<a class="headerlink" href="#hashset_1" title="Permanent link">&para;</a></h4>
+<ol>
+<li>HashSet底层是HashMap,第一次添加时，table数组扩容到16，临界值（threshold）是16*加载因子（loadFactor）是0.75 = 12</li>
+<li>如果table数组达到临界值 12，就会扩容到16<em>2=32，新的临界值就是32</em>  * 0.73=24，依次类推</li>
+<li>在Java8中，如果一条链表的元素个数达到TREEIF_THRESHOLD(默认是8)，并且table的大小》= MIN_TREEIFY_CAPACITY(默认 64)就会变化成红黑树，否则采用数组扩容机制</li>
+<li>只要链表结点数 +哈希数组数大于 临界值就会进行扩容；</li>
+</ol>
+<h4 id="linkedhashset">LinkedHashSet<a class="headerlink" href="#linkedhashset" title="Permanent link">&para;</a></h4>
+<ol>
+<li>继承了HashSet,底层是一个LinkedHashMap,维护了一个hash表和双向链表</li>
+<li>每个结点都有pre和next属性</li>
+<li>LinkedHashSet加入顺序和取出顺序一致</li>
+</ol>
+<h2 id="map">Map接口<a class="headerlink" href="#map" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Map与Collection并列存在。用于保存具有映射关系的数据：Key-Value</li>
+<li>Map中的key和value可以用任何引用类型的数据，会封装成HashMap$Node对象中</li>
+<li>Map中的key不可以重复，原因于HashSet一样</li>
+<li>Map中的Value可以被重复,当key相同时会被覆盖</li>
+<li>Map中的key   ,value 都可以设为null，key只能存在一个null</li>
+<li>常用的String类可以作为Map中的Key</li>
+<li>key和Value之间存在单向一对一关系，可以通过指定key找到value</li>
+</ol>
+<h3 id="map_1">Map底层分析<a class="headerlink" href="#map_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>K-V 最后是HashMap$Node node =newNode(hash,key,value,null)</p>
+</li>
+<li>
+<p>k-v 为了方便程序员遍历，还会创建EntrySet集合，该集合存在的元素类型Entry,面向一个Entry对象就有k,v EntrySet<Entry\<K,V>>  即 transient Set<Map,Entry\<K,V>> entrySet;</p>
+</li>
+<li>
+<p>entrySet中，定义的类型是Map.Entry,但实际上存放的还是HashMap$Node</p>
+</li>
+<li>
+<p>Node实现了MapEntry接口，定义了一个内部类entry,可以理解为向上转型</p>
+</li>
+<li>
+<p>当把HashMap$Node对象存在entrySet就方便我们的遍历，因为Map,Entry提供了K getKey ,  V</p>
+<p>getValue</p>
+</li>
+</ol>
+<h3 id="map_2">Map接口的常用方法<a class="headerlink" href="#map_2" title="Permanent link">&para;</a></h3>
+<ol>
+<li>map.put(key,value);   添加元素</li>
+<li>map.remove(key,value)  || map.remove(key)；根据键删除映射关系</li>
+<li>Object obj = map.get(key)；根据键获得值，返回的是object对象</li>
+<li>map.size():获取元素个数;</li>
+<li>map.isEmpty();判断是否为空，返回布尔值</li>
+<li>cleae();  清空表</li>
+<li>containsKey(); 查找键是否存在</li>
+</ol>
+<h3 id="map_3">Map接口的六大遍历方式<a class="headerlink" href="#map_3" title="Permanent link">&para;</a></h3>
+<p>1.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="c1">//第一组：先取出所有的key  通过key找到对应的value</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="n">Set</span><span class="w"> </span><span class="n">keyset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="na">kepSet</span><span class="p">();</span>
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="c1">//(1)增强for</span>
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="k">for</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">keyset</span><span class="p">){</span>
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">key</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;-&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">key</span><span class="p">));</span>
+<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="p">}</span>
+<a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a><span class="c1">//(2)迭代器</span>
+<a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a><span class="n">Iterator</span><span class="w"> </span><span class="n">iterator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">keyset</span><span class="p">.</span><span class="na">iterator</span><span class="p">();</span>
+<a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a><span class="k">while</span><span class="p">(</span><span class="n">iterator</span><span class="p">.</span><span class="na">hasNext</span><span class="p">()){</span>
+<a id="__codelineno-31-10" name="__codelineno-31-10" href="#__codelineno-31-10"></a><span class="w">    </span><span class="n">Object</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iterator</span><span class="p">.</span><span class="na">next</span><span class="p">();</span>
+<a id="__codelineno-31-11" name="__codelineno-31-11" href="#__codelineno-31-11"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">key</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;-&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">key</span><span class="p">));</span>
+<a id="__codelineno-31-12" name="__codelineno-31-12" href="#__codelineno-31-12"></a><span class="p">}</span>
+</code></pre></div>
+<ol>
+<li></li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="c1">//第二组：把所有的values取出</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="n">Collection</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="na">values</span><span class="p">();</span>
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="c1">//这里可以使用所有的Collection使用的遍历方法</span>
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="c1">//（1）增强for</span>
+<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="k">for</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">values</span><span class="p">){</span>
+<a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+<a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a><span class="p">}</span>
+<a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a><span class="c1">//(2)迭代器</span>
+<a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a><span class="n">Iterator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iterator2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">values</span><span class="p">.</span><span class="na">iterator</span><span class="p">();</span>
+<a id="__codelineno-32-10" name="__codelineno-32-10" href="#__codelineno-32-10"></a><span class="k">while</span><span class="p">(</span><span class="n">iterator2</span><span class="p">.</span><span class="na">hasNext</span><span class="p">()){</span>
+<a id="__codelineno-32-11" name="__codelineno-32-11" href="#__codelineno-32-11"></a><span class="w">    </span><span class="n">Object</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iterator2</span><span class="p">.</span><span class="na">next</span><span class="p">();</span>
+<a id="__codelineno-32-12" name="__codelineno-32-12" href="#__codelineno-32-12"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+<a id="__codelineno-32-13" name="__codelineno-32-13" href="#__codelineno-32-13"></a><span class="p">}</span>
+</code></pre></div>
+<p>3.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="c1">//第三组：通过EntrySet 来获取 k-v</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="n">Set</span><span class="w"> </span><span class="n">entrySet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="na">entrySet</span><span class="p">();</span><span class="c1">//EntrySet&lt;Map.Entrey&lt;k,v&gt;&gt;</span>
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="c1">//(1)增强for </span>
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="k">for</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">entrySet</span><span class="p">){</span>
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="w">    </span><span class="c1">//将entry 转成 Map.Entry</span>
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="w">    </span><span class="n">Map</span><span class="p">.</span><span class="na">Entry</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Map</span><span class="p">.</span><span class="na">Entry</span><span class="p">)</span><span class="n">entry</span><span class="p">;</span>
+<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a><span class="w">     </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="na">getKey</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="na">getValue</span><span class="p">());</span>
+<a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a><span class="p">}</span>
+<a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a><span class="c1">//(2)迭代器</span>
+<a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a><span class="n">Iterator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iterator2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">entreySet</span><span class="p">.</span><span class="na">iterator</span><span class="p">();</span>
+<a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a><span class="k">while</span><span class="p">(</span><span class="n">iterator3</span><span class="p">.</span><span class="na">hasNext</span><span class="p">()){</span>
+<a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a><span class="w">    </span><span class="n">Object</span><span class="w"> </span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iterator3</span><span class="p">.</span><span class="na">next</span><span class="p">();</span>
+<a id="__codelineno-33-13" name="__codelineno-33-13" href="#__codelineno-33-13"></a><span class="w">    </span><span class="n">Map</span><span class="p">.</span><span class="na">Entry</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Map</span><span class="p">.</span><span class="na">Entry</span><span class="p">)</span><span class="w"> </span><span class="n">entry</span><span class="p">;</span><span class="c1">//向下转型调用</span>
+<a id="__codelineno-33-14" name="__codelineno-33-14" href="#__codelineno-33-14"></a><span class="w">    </span><span class="c1">//System.out.println(net.getclass);//编译类型</span>
+<a id="__codelineno-33-15" name="__codelineno-33-15" href="#__codelineno-33-15"></a><span class="w">  </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="na">getKey</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="na">getValue</span><span class="p">())</span>
+<a id="__codelineno-33-16" name="__codelineno-33-16" href="#__codelineno-33-16"></a><span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>containsKey:查找键是否存在</li>
+<li>KeySet:获取所有键</li>
+<li>entrySet :获取所有关系 k-v</li>
+<li>values:获取所有的值</li>
+</ol>
+<h3 id="hashmap">HashMap<a class="headerlink" href="#hashmap" title="Permanent link">&para;</a></h3>
+<ol>
+<li>没有实现同步，线程不安全，方法没有做同步互斥操作，没有synchronized</li>
+<li>扩容机制于HashSet相同</li>
+</ol>
+<h3 id="maphashtable">Map接口实现类—Hashtable<a class="headerlink" href="#maphashtable" title="Permanent link">&para;</a></h3>
+<ol>
+<li>存放的元素是键值对： k-v</li>
+<li>hashtable的键和值都不能为null,否则抛出NullPointerException</li>
+<li>使用方法和hashmap一样</li>
+<li>hashtable是线程安全的，hashmap是线程不安全的</li>
+<li>底层有数组Hashtable$Entry[]初始化大小为11；</li>
+<li>临界值 threshold：8 = 11*0.75</li>
+<li>扩容    =  *2+1</li>
+</ol>
+<h3 id="properties">properties<a class="headerlink" href="#properties" title="Permanent link">&para;</a></h3>
+<ol>
+<li>继承hashtable</li>
+</ol>
+<p><img alt="" src="../assets/Snipaste_2023-04-17_09-04-50.png" /></p>
+<h3 id="treeset">TreeSet<a class="headerlink" href="#treeset" title="Permanent link">&para;</a></h3>
+<ol>
+<li>当我们使用无参构造器，创建TreeSet时，仍然是无序的</li>
+<li>使用TreeSet提供一个构造器，可以传入一个比较器（匿名内部类）底层是TreeMap</li>
+<li><img alt="" src="../assets/Snipaste_2023-04-17_16-25-23.png" /></li>
+</ol>
+<h3 id="treemap">TreeMap<a class="headerlink" href="#treemap" title="Permanent link">&para;</a></h3>
+<ol>
+<li>使用默认构造器，是无序的</li>
+<li>可以通过匿名内部类来牌序</li>
+</ol>
+<h1 id="_65">泛型<a class="headerlink" href="#_65" title="Permanent link">&para;</a></h1>
+<h3 id="_66">介绍<a class="headerlink" href="#_66" title="Permanent link">&para;</a></h3>
+<ol>
+<li>泛型又称参数类型，是jdk5出现的新的特征，解决数据类型的安全性问题</li>
+<li>在类声明或实列化时只要指定好需要的具体的类型即可</li>
+<li>Java泛型可以保证如果程序在编译时没发出警告，运行时就不会产生ClassCastException异常。同时，代码更加简洁，健壮</li>
+<li>泛型的作用是：可以在类声明时通过一个标识表示类中某个属性的类型，或者是某个方法的返回值的类型，或者是参数类型</li>
+<li>泛型不具有继承性</li>
+</ol>
+<h3 id="_67">声明<a class="headerlink" href="#_67" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>interface 接口 <T>{} 和 class 类<K,V>{}</p>
+</li>
+<li>
+<p>其中T,K,V不表示值，表示类型</p>
+</li>
+<li>
+<p>一般使用T,type的缩写</p>
+</li>
+<li>
+<p>可以接受泛型的子类型</p>
+</li>
+<li>
+<p>可以使用简写 List<A> list = new ArrayLise&lt;&gt;();省略运行类型的泛型</p>
+</li>
+</ol>
+<h3 id="class">自定义泛型class 类名 <T,E,...><a class="headerlink" href="#class" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>普通成员可以使用泛型</p>
+</li>
+<li>
+<p>使用泛型的数组，不能初始化(开辟空间无法确定)</p>
+</li>
+<li>
+<p>静态方法中不能使用类的泛型</p>
+</li>
+<li>
+<p>泛型类的类型，是在创建对象时确定的</p>
+</li>
+<li>
+<p>如果在创建对象时，没有指定，默认为object</p>
+</li>
+<li>
+<p>泛型接口的类型，在继承接口或者实现接口时确定</p>
+</li>
+<li>
+<p>泛型方法可以定义在普通类或者在泛型类</p>
+</li>
+<li>
+<p>当泛型方法被调用，类型会被确定</p>
+</li>
+<li>
+<p>public void eat(E e){}不是方向方法，而是使用了泛型</p>
+</li>
+<li>
+<p>public <T,R> void(T t,R r){}; 是泛型方法，声明了泛型标识符</p>
+</li>
+</ol>
+<h3 id="_68">泛型的通配<a class="headerlink" href="#_68" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><code>java
+   public static void printCollection1(List&lt;?&gt; c){
+      for(Object object : c){
+       System.out.Println(object);
+      }
+   }
+   //通配符，取出时，就是Objct</code></p>
+</li>
+<li>
+<p><code>java
+   // ? extends AA 表示上限，可以接受AA或者AA子类
+   public static void printCollection2(List&lt;? extends AA&gt; c){
+      for(Object object : c){
+       System.out.Println(object);
+      }
+   }</code></p>
+</li>
+<li>
+<p><code>java
+   public static void printCollection3(List&lt;? super AA&gt; c){
+      for(Object object : c){
+       System.out.Println(object);
+      }
+   }
+   //? super 子类类名AA：支持AA类以及AA类的父类，不限于直接父类，规定了泛型的下限</code></p>
+</li>
+</ol>
+<h1 id="junit">JUnit测试类<a class="headerlink" href="#junit" title="Permanent link">&para;</a></h1>
+<ol>
+<li>一个类有很多功能代码需要测试，为了测试，就需要写道main方法中</li>
+<li>如果有多个功能代码测试，就需要回来注销，切换麻烦</li>
+<li>如果可以直接运行一个方法，就方便很多，并且可以给相关信息-》JUnit</li>
+<li>使用方式 @Text + alt +Entet</li>
+</ol>
+<h1 id="java_3">java绘图技术<a class="headerlink" href="#java_3" title="Permanent link">&para;</a></h1>
+<p><img alt="" src="../assets/Snipaste_2023-04-20_20-49-57.png" /></p>
+<h2 id="jpanel">JPanel类（画板）<a class="headerlink" href="#jpanel" title="Permanent link">&para;</a></h2>
+<p>画图状，就在面板画</p>
+<h2 id="graphics">Graphics类(画笔)<a class="headerlink" href="#graphics" title="Permanent link">&para;</a></h2>
+<ol>
+<li>提供了很多画图方法</li>
+<li>drawOval(画圆方法)（x,y,width,hight）(详细看文档)</li>
+</ol>
+<p><img alt="" src="../assets/Snipaste_2023-04-20_21-00-07.png" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="n">Toolkit</span><span class="p">.</span><span class="na">getDefaultToolkit</span><span class="p">().</span><span class="na">getImage</span><span class="p">(</span><span class="n">URL</span><span class="w"> </span><span class="n">url</span><span class="p">);</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="w"> </span><span class="n">Toolkit</span><span class="p">.</span><span class="na">getDefaultToolkit</span><span class="p">().</span><span class="na">getImage</span><span class="p">(</span><span class="n">Panel</span><span class="p">.</span><span class="na">class</span><span class="p">.</span><span class="na">getResource</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">));</span>
+</code></pre></div>
+<p>​    获取图片,图片一定要放在根目录下</p>
+<h2 id="jframe">JFrame类<a class="headerlink" href="#jframe" title="Permanent link">&para;</a></h2>
+<p>用于嵌入面板</p>
+<h2 id="keylistener">keyListener接口<a class="headerlink" href="#keylistener" title="Permanent link">&para;</a></h2>
+<p>键盘监听器</p>
+<ol>
+<li>keyTyped(KeyEvent e) 有字符输出时，会触发该方法</li>
+<li>keyPressed(KeyEvent e) 当某个键按下时，会触发该方法</li>
+<li>keyReleased(KeyEvent e) 当某个键松开时，会触发该方法</li>
+</ol>
+<h1 id="java_4">Java事件处理机制<a class="headerlink" href="#java_4" title="Permanent link">&para;</a></h1>
+<ol>
+<li>
+<p>事件源：一个产生事件的对象，比如按钮</p>
+</li>
+<li>
+<p>事件：承载事件源状态改变时的对象，如键盘事件</p>
+</li>
+<li>
+<p>事件监听器有多种接口，不同的事件监听器接口可以监听不同的事件，一个类可以实现多个监听接口</p>
+</li>
+<li>
+<p>这些接口在Java.awt.event 和javax.swing.event包中定义，</p>
+</li>
+</ol>
+<p><img alt="" src="../assets/Snipaste_2023-04-23_20-28-41.png" /></p>
+<h1 id="_69">多线程<a class="headerlink" href="#_69" title="Permanent link">&para;</a></h1>
+<h2 id="_70"><a class="headerlink" href="#_70" title="Permanent link">&para;</a></h2>
+<p>单线程：同一时刻，只允许一个线程</p>
+<p>多线程：同一时刻，可以执行多个线程</p>
+<p>并发：同一时刻，多个任务交替进行</p>
+<p>并行：同一个时刻，多个任务同时执行，多核cpu同时进行</p>
+<h2 id="thread">Thread类<a class="headerlink" href="#thread" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>当一个类继承了thread类，该类就可以当线程使用</p>
+</li>
+<li>
+<p>重写run方法，写上自己的业务代码</p>
+</li>
+<li>
+<p>run Thread类 实现了Runable 接口</p>
+</li>
+<li>
+<p>slee(毫米);方法：进行 休眠</p>
+</li>
+</ol>
+<h2 id="runnable">runnable接口<a class="headerlink" href="#runnable" title="Permanent link">&para;</a></h2>
+<ol>
+<li>java是单继承的，在某些情况下一个类可能已经继承了某个父类，这时在用继承Thread类方法来创建线程显然不可能了</li>
+<li>Java设计者们提供了另外一个方式创建线程。就是通过实现Runnable接口创建线程</li>
+<li>可以通过Thread thread = newThread(object);使继承了runnable接口的object的类可以使用start();方法；底层使用了代理</li>
+</ol>
+<h2 id="_71">线程方法<a class="headerlink" href="#_71" title="Permanent link">&para;</a></h2>
+<ol>
+<li>setName    设置线程名称，使之与参数name相同</li>
+<li>getname     返回该线程的名称</li>
+<li>start             执行线程</li>
+<li>run               调用线程对象run方法</li>
+<li>setPriority   更改线程优先级（MAX_PRIORITY,MIN_PRIORITY,NORM_PRIORITY）</li>
+<li>getPriority   获得线程优先级</li>
+<li>sleep             在指定毫秒内进行线程休眠</li>
+<li>interrupt      中断休眠，一般用于中断休眠的线程       </li>
+<li>yield                线程的礼让，让出cpu让其他线程执行，但礼让的时间不确定，所以不一定礼让成功（根据CPU内核态的紧张情况决定）</li>
+<li>join               线程的插队。插队的线程一旦插队成功，则先执行插入的线程的所有任务        </li>
+</ol>
+<h2 id="_72">用户线程和守护线程<a class="headerlink" href="#_72" title="Permanent link">&para;</a></h2>
+<ol>
+<li>用户线程：也叫工作线程，当前线程的任务执行完或通知方式结束</li>
+<li>守护线程：一般是为工作线程服务，当所有的用户线程结束，守护线程自动结束</li>
+<li>常见的守护线程：垃圾回收机制</li>
+</ol>
+<h2 id="_73">线程的七大状态<a class="headerlink" href="#_73" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="../assets/Snipaste_2023-05-01_08-09-58.png" /></p>
+<h2 id="synchronized">线程同步（synchronized）<a class="headerlink" href="#synchronized" title="Permanent link">&para;</a></h2>
+<ol>
+<li>在多线程编程，一些敏感数据不允许被多个线程同时访问，此时就使用同步访问技术，保证数据在任何同一时刻，最多有一个线程访问，以保证数据的完整性</li>
+<li>线程同步，即当有一个线程在堆内存进行操作时，其他线程可以对内存地址进行操作，直到该线程完成操作，其他线程才能对该内存地址进行操作</li>
+</ol>
+<p><img alt="" src="../assets/Snipaste_2023-05-02_15-00-22.png" /></p>
+<h3 id="_74">互斥锁<a class="headerlink" href="#_74" title="Permanent link">&para;</a></h3>
+<ol>
+<li>在java语言中，引入了对象互斥锁的概念，来保证共享数据的完整性</li>
+<li>每个对象都对应于一个可称为“互斥锁”的标记，这个标记用来保证在任一时刻，只能有一个线程访问该对象</li>
+<li>关键字synchronized来于对象的互斥锁联系，当某个对象用synchronized修饰时，表明该对象在任一时刻只能由一个线程访问</li>
+<li>同步的局限性：导致程序的执行效率降低</li>
+<li>同步方法（非静态）的锁可以是this,也可以是其他的对象（要求同一个对象）</li>
+<li>同步方法（静态的）的锁为当前类本身</li>
+</ol>
+<h3 id="_75">线程的死锁<a class="headerlink" href="#_75" title="Permanent link">&para;</a></h3>
+<p>多个线程占用了对方的锁资源，但不肯相让，导致了死锁，在线程需要避免死锁的情况</p>
+<h3 id="_76">释放锁<a class="headerlink" href="#_76" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="../assets/Snipaste_2023-05-02_15-58-57.png" /></p>
 
 
 
