@@ -1758,11 +1758,224 @@ while(iterator3.hasNext()){
 2. 在类声明或实列化时只要指定好需要的具体的类型即可
 3. Java泛型可以保证如果程序在编译时没发出警告，运行时就不会产生ClassCastException异常。同时，代码更加简洁，健壮
 4. 泛型的作用是：可以在类声明时通过一个标识表示类中某个属性的类型，或者是某个方法的返回值的类型，或者是参数类型
+5. 泛型不具有继承性
 
 ### 声明
 
 1. interface 接口 <T>{} 和 class 类<K,V>{}
+
 2. 其中T,K,V不表示值，表示类型
+
 3. 一般使用T,type的缩写
+
 4. 可以接受泛型的子类型
+
 5. 可以使用简写 List<A> list = new ArrayLise<>();省略运行类型的泛型
+
+   
+
+### 自定义泛型class 类名 <T,E,...>
+
+1. 普通成员可以使用泛型
+
+2. 使用泛型的数组，不能初始化(开辟空间无法确定)
+
+3. 静态方法中不能使用类的泛型
+
+4. 泛型类的类型，是在创建对象时确定的
+
+5. 如果在创建对象时，没有指定，默认为object
+
+6. 泛型接口的类型，在继承接口或者实现接口时确定
+
+7. 泛型方法可以定义在普通类或者在泛型类
+
+8. 当泛型方法被调用，类型会被确定
+
+9. public void eat(E e){}不是方向方法，而是使用了泛型
+
+10. public <T,R> void(T t,R r){}; 是泛型方法，声明了泛型标识符
+
+    
+
+### 泛型的通配
+
+1. ```java
+   public static void printCollection1(List<?> c){
+      for(Object object : c){
+       System.out.Println(object);
+      }
+   }
+   //通配符，取出时，就是Objct
+   ```
+
+2. ```java
+   // ? extends AA 表示上限，可以接受AA或者AA子类
+   public static void printCollection2(List<? extends AA> c){
+      for(Object object : c){
+       System.out.Println(object);
+      }
+   }
+   ```
+
+3. ```java
+   public static void printCollection3(List<? super AA> c){
+      for(Object object : c){
+       System.out.Println(object);
+      }
+   }
+   //? super 子类类名AA：支持AA类以及AA类的父类，不限于直接父类，规定了泛型的下限
+   ```
+
+   
+
+# JUnit测试类
+
+1. 一个类有很多功能代码需要测试，为了测试，就需要写道main方法中
+2. 如果有多个功能代码测试，就需要回来注销，切换麻烦
+3. 如果可以直接运行一个方法，就方便很多，并且可以给相关信息-》JUnit
+4. 使用方式 @Text + alt +Entet
+
+# java绘图技术
+
+![](assets/Snipaste_2023-04-20_20-49-57.png)
+
+## JPanel类（画板）
+
+画图状，就在面板画
+
+
+
+## Graphics类(画笔)
+
+1. 提供了很多画图方法
+2. drawOval(画圆方法)（x,y,width,hight）(详细看文档)
+
+
+
+![](assets/Snipaste_2023-04-20_21-00-07.png)
+
+```java
+Toolkit.getDefaultToolkit().getImage(URL url);
+ Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(""));
+```
+
+​    获取图片,图片一定要放在根目录下
+
+##   JFrame类
+
+用于嵌入面板
+
+
+
+
+
+## keyListener接口
+
+键盘监听器
+
+1. keyTyped(KeyEvent e) 有字符输出时，会触发该方法
+2. keyPressed(KeyEvent e) 当某个键按下时，会触发该方法
+3. keyReleased(KeyEvent e) 当某个键松开时，会触发该方法
+
+
+
+# Java事件处理机制
+
+1. 事件源：一个产生事件的对象，比如按钮
+
+2. 事件：承载事件源状态改变时的对象，如键盘事件
+
+3. 事件监听器有多种接口，不同的事件监听器接口可以监听不同的事件，一个类可以实现多个监听接口
+
+4. 这些接口在Java.awt.event 和javax.swing.event包中定义，
+
+   ![](assets/Snipaste_2023-04-23_20-28-41.png)
+
+
+
+
+
+# 多线程
+
+## 
+
+单线程：同一时刻，只允许一个线程
+
+多线程：同一时刻，可以执行多个线程
+
+并发：同一时刻，多个任务交替进行
+
+并行：同一个时刻，多个任务同时执行，多核cpu同时进行
+
+
+
+## Thread类
+
+1. 当一个类继承了thread类，该类就可以当线程使用
+
+2. 重写run方法，写上自己的业务代码
+
+3. run Thread类 实现了Runable 接口
+
+4. slee(毫米);方法：进行 休眠
+
+   
+
+## runnable接口
+
+1. java是单继承的，在某些情况下一个类可能已经继承了某个父类，这时在用继承Thread类方法来创建线程显然不可能了
+2. Java设计者们提供了另外一个方式创建线程。就是通过实现Runnable接口创建线程
+3. 可以通过Thread thread = newThread(object);使继承了runnable接口的object的类可以使用start();方法；底层使用了代理
+
+
+
+## 线程方法
+
+1. setName    设置线程名称，使之与参数name相同
+2. getname     返回该线程的名称
+3. start             执行线程
+4. run               调用线程对象run方法
+5. setPriority   更改线程优先级（MAX_PRIORITY,MIN_PRIORITY,NORM_PRIORITY）
+6. getPriority   获得线程优先级
+7. sleep             在指定毫秒内进行线程休眠
+8. interrupt      中断休眠，一般用于中断休眠的线程       
+9. yield                线程的礼让，让出cpu让其他线程执行，但礼让的时间不确定，所以不一定礼让成功（根据CPU内核态的紧张情况决定）
+10. join               线程的插队。插队的线程一旦插队成功，则先执行插入的线程的所有任务        
+
+## 用户线程和守护线程
+
+1. 用户线程：也叫工作线程，当前线程的任务执行完或通知方式结束
+2. 守护线程：一般是为工作线程服务，当所有的用户线程结束，守护线程自动结束
+3. 常见的守护线程：垃圾回收机制
+
+## 线程的七大状态
+
+![](assets/Snipaste_2023-05-01_08-09-58.png)
+
+## 线程同步（synchronized）
+
+1. 在多线程编程，一些敏感数据不允许被多个线程同时访问，此时就使用同步访问技术，保证数据在任何同一时刻，最多有一个线程访问，以保证数据的完整性
+2. 线程同步，即当有一个线程在堆内存进行操作时，其他线程可以对内存地址进行操作，直到该线程完成操作，其他线程才能对该内存地址进行操作
+
+![](assets/Snipaste_2023-05-02_15-00-22.png)
+
+### 互斥锁
+
+1. 在java语言中，引入了对象互斥锁的概念，来保证共享数据的完整性
+2. 每个对象都对应于一个可称为“互斥锁”的标记，这个标记用来保证在任一时刻，只能有一个线程访问该对象
+3. 关键字synchronized来于对象的互斥锁联系，当某个对象用synchronized修饰时，表明该对象在任一时刻只能由一个线程访问
+4. 同步的局限性：导致程序的执行效率降低
+5. 同步方法（非静态）的锁可以是this,也可以是其他的对象（要求同一个对象）
+6. 同步方法（静态的）的锁为当前类本身
+
+
+
+### 线程的死锁
+
+多个线程占用了对方的锁资源，但不肯相让，导致了死锁，在线程需要避免死锁的情况
+
+### 释放锁
+
+![](assets/Snipaste_2023-05-02_15-58-57.png)
+
