@@ -14,7 +14,7 @@ jre为运行环境
 
 JDK  = JRE + Java的开法工具
 
-JRD = JVM +Java核心类库
+JRE = JVM +Java核心类库
 
 JDK(JRE(JVM))
 
@@ -376,7 +376,7 @@ animal = new Cat(); {animal的运行类型变成 Cat ，编译类型仍然是 An
 3. 要求父类的引用必须指向的是当前目标类型的对象
 4. 可以调用子类类型中所有的成员
 
-#### 多态的注意事项
+#### 多态的注意事项 
 
 1. 属性没有重写之说，属性的值看编译类型
 
@@ -750,7 +750,8 @@ class Cat{    /*    * 懒汉式
 4. 抽象类不能被实例化
 5. abstract只能修饰方法和类
 6. 如果一个类继承抽象类，则它必须实现（将抽象方法重写）抽象类的所有抽象方法，除非它自己声明为抽象类；
-7. 重写方法不能使用private，final，static来修饰，因为这些方法与重写相违背
+7. 重写方法不能使用
+8. 来修饰，因为这些方法与重写相违背
 
 
 
@@ -1708,6 +1709,7 @@ while(iterator3.hasNext()){
 
 1. 没有实现同步，线程不安全，方法没有做同步互斥操作，没有synchronized
 2. 扩容机制于HashSet相同
+3. HashMap是线程不安全的，如果要保证线程安全那么可以使用ConcurrentHashMap
 
 
 
@@ -1898,8 +1900,6 @@ Toolkit.getDefaultToolkit().getImage(URL url);
 
 # 多线程
 
-## 
-
 单线程：同一时刻，只允许一个线程
 
 多线程：同一时刻，可以执行多个线程
@@ -1908,9 +1908,9 @@ Toolkit.getDefaultToolkit().getImage(URL url);
 
 并行：同一个时刻，多个任务同时执行，多核cpu同时进行
 
+## 创建多线程的四种方式
 
-
-## Thread类
+### Thread类
 
 1. 当一个类继承了thread类，该类就可以当线程使用
 
@@ -1922,11 +1922,131 @@ Toolkit.getDefaultToolkit().getImage(URL url);
 
    
 
-## runnable接口
+### Runnable接口
 
 1. java是单继承的，在某些情况下一个类可能已经继承了某个父类，这时在用继承Thread类方法来创建线程显然不可能了
+
 2. Java设计者们提供了另外一个方式创建线程。就是通过实现Runnable接口创建线程
+
 3. 可以通过Thread thread = newThread(object);使继承了runnable接口的object的类可以使用start();方法；底层使用了代理
+
+4. ![](assets/Snipaste_2023-05-17_19-43-02.png)
+
+   
+
+
+
+### Cabble接口 
+
+1. 相比于run（）方法,可以有返回值
+
+2. 方法可以抛出异常
+
+3. 支持泛型的返回值
+
+4. 需要借助FutureTask类
+
+5. ```java
+   public class ThreadDemo04 implements Callable<String> {
+   
+       @Override
+       public String call() throws Exception {//抛异常
+   
+           System.out.println("线程名称:" + Thread.currentThread().getName());
+           return "hello  world!!!";
+       }
+   
+       public static void main(String[] args) {
+   
+           ThreadDemo04 demo04 = new ThreadDemo04();
+   
+           FutureTask futureTask = new FutureTask(demo04);
+   
+           Thread t2 = new Thread(futureTask);
+   
+           t2.start();
+   
+           System.out.println("线程名称：" + Thread.currentThread().getName());
+       }
+   }
+   
+   
+   ```
+
+
+
+### 线程池
+
+（1）降低资源消耗。通过重复利用已创建的线程降低线程创建和销毁造成的消耗。
+
+（2）提高响应速度。当任务到达时，任务可以不需要等到线程创建就能立即执行。
+
+（3）提高线程的可管理性。线程是稀缺资源，如果无限制的创建，不仅会消耗系统资源，还会降低系统的稳定性，使用线程池可以进行统一的分配，调优和监控。
+
+
+
+思路：提前创建多个线程，放入线程池中，使用时直接获取，使用完放回池中，可以避免频繁创建销毁，实现反复利用。
+
+
+
+```java
+package com.test;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
+
+/*
+    练习Executors获取ExecutorService,然后调用方法,提交任务;
+ */
+public class MyTest02 {
+    public static void main(String[] args) {
+        //test1();
+        test2();
+    }
+    //练习方法newFixedThreadPool
+    private static void test1() {
+        //1:使用工厂类获取线程池对象
+        ExecutorService es = Executors.newFixedThreadPool(3);
+        //2:提交任务;
+        for (int i = 1; i <=10 ; i++) {
+            es.submit(new MyRunnable2(i));
+        }
+    }
+    private static void test2() {
+        //1:使用工厂类获取线程池对象
+        ExecutorService es = Executors.newFixedThreadPool(3,new ThreadFactory() {
+            int n=1;
+            @Override
+            public Thread newThread(Runnable r) {
+                return new Thread(r,"自定义的线程名称"+n++);
+            }
+        });
+        //2:提交任务;
+        for (int i = 1; i <=10 ; i++) {
+            es.submit(new MyRunnable2(i));
+        }
+    }
+}
+
+/*
+    任务类,包含一个任务编号,在任务中,打印出是哪一个线程正在执行任务
+ */
+class MyRunnable2 implements Runnable{
+    private  int id;
+    public MyRunnable2(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public void run() {
+        //获取线程的名称,打印一句话
+        String name = Thread.currentThread().getName();
+        System.out.println(name+"执行了任务..."+id);
+    }
+}
+
+```
 
 
 
@@ -1941,7 +2061,19 @@ Toolkit.getDefaultToolkit().getImage(URL url);
 7. sleep             在指定毫秒内进行线程休眠
 8. interrupt      中断休眠，一般用于中断休眠的线程       
 9. yield                线程的礼让，让出cpu让其他线程执行，但礼让的时间不确定，所以不一定礼让成功（根据CPU内核态的紧张情况决定）
-10. join               线程的插队。插队的线程一旦插队成功，则先执行插入的线程的所有任务        
+10. join               线程的插队。插队的线程一旦插队成功，则先执行插入的线程的所有任务 
+11. currentThread();返回当前类的线程       
+
+
+
+## 线程的调度
+
+1. 同优先级线程组成先进队列
+2. 对高优先级，使用优先调度的抢占策略
+
+
+
+
 
 ## 用户线程和守护线程
 
@@ -1953,7 +2085,7 @@ Toolkit.getDefaultToolkit().getImage(URL url);
 
 ![](assets/Snipaste_2023-05-01_08-09-58.png)
 
-## 线程同步（synchronized）
+## 线程同步（synchronized（同步监视器））
 
 1. 在多线程编程，一些敏感数据不允许被多个线程同时访问，此时就使用同步访问技术，保证数据在任何同一时刻，最多有一个线程访问，以保证数据的完整性
 2. 线程同步，即当有一个线程在堆内存进行操作时，其他线程可以对内存地址进行操作，直到该线程完成操作，其他线程才能对该内存地址进行操作
@@ -1971,6 +2103,10 @@ Toolkit.getDefaultToolkit().getImage(URL url);
 
 
 
+### 
+
+
+
 ### 线程的死锁
 
 多个线程占用了对方的锁资源，但不肯相让，导致了死锁，在线程需要避免死锁的情况
@@ -1979,3 +2115,150 @@ Toolkit.getDefaultToolkit().getImage(URL url);
 
 ![](assets/Snipaste_2023-05-02_15-58-57.png)
 
+
+
+## lock锁
+
+1. jdk1.5.0新增的方式，如果获取锁的线程由于要等待IO或者其他原因（比如调用sleep方法）被阻塞了，但是又没有释放锁，其他线程便只能干巴巴地等待，这十分影响程序执行效率。因此就需要有一种机制可以不让等待的线程一直无期限地等待下去（比如只等待一定的时间或者能够响应中断），通过Lock就可以办到。通过Lock可以知道线程有没有成功获取到锁。这个是synchronized无法办到的。
+
+2. Lock**不是**Java语言内置的，synchronized**是**Java语言的关键字，因此是内置特性。Lock是一个类，通过这个类可以实现同步访问；
+
+3. 
+
+   ```java
+      public class TestReentrantLock1 {
+       private ArrayList<Integer> arrayList = new ArrayList<Integer>();
+       public static void main(String[] args)  {
+           final TestReentrantLock1 test = new TestReentrantLock1();
+      new Thread(){
+           public void run() {
+               test.insert(Thread.currentThread());
+           };
+       }.start();
+   
+       new Thread(){
+           public void run() {
+               test.insert(Thread.currentThread());
+           };
+       }.start();
+   }
+   
+   public void insert(Thread thread) {
+       Lock lock = new ReentrantLock();    //注意这个地方
+       lock.lock();
+       try {
+           System.out.println(thread.getName()+"得到了锁");
+           for(int i=0;i<1000;i++) {
+               arrayList.add(i);
+           }
+       } catch (Exception e) {
+           // TODO: handle exception
+       }finally {
+           System.out.println(thread.getName()+"释放了锁");
+           lock.unlock();
+       }
+   }
+   
+     原文链接：https://blog.csdn.net/qq_39150049/article/details/112798911
+   ```
+
+4. ![](assets/Snipaste_2023-05-17_19-16-56.png)
+
+5. ```java
+   ReentrantLock lock = new ReentrantLock(true);//实现类,当构造器加入true时，该锁为公平锁
+   //公平锁，不会出现一个线程同时抢到锁
+   lock.lock();
+   try{
+       //处理任务
+   }catch(Exception ex){
+        
+   }finally{
+       lock.unlock();   //释放锁
+   }
+   
+   ```
+
+## lock和synchronized的异同
+
+1. 相同点：二者都可以解决线程安全问题
+2. 不同：synchronized机制在执行完成代码以后，自动的释放同步监视器（锁）
+3. lock需要手动的启动同步，手动的解锁
+
+# IO流
+
+## 文件基础知识
+
+![](assets/Snipaste_2023-05-10_09-28-09.png)
+
+### 创建文件对象相关构造器和方法
+
+1. new File(String pathname)//根据路径构建一个 File 对象
+2. new File(File parent,String child)//根据父目录文件 + 子路径构建
+3. new File(String parent,String child)//根据父目录 + 子路径构建
+4. 使用creatNewFile()调用
+
+
+
+### 文件的常用方法
+
+1. getName()；获得文件名字
+2. getAbsolutePath()；获取绝对路径
+3. getParent()；得到文件父目录
+4. length()；文件大小（字节）(汉族占3字节)
+5. exists()；文件是否存在
+6. isFile；   判断是否是一个文件
+7. isDirectory()； 判断是否是一个目录
+8. mkdir()；创建一级目录
+9. mkdirs(); 创建多级目录
+10. delect();删除文件；（并且会返回布尔值进行判断）
+
+
+
+## IO流
+
+1. I/O是input/Output的缩写，I/O技术是非常实用的技术，用于处理数据传输。如读/写文件，网络通讯等
+2. java程序中，对于数据输入/输出操作以“流（stream)“的方式进行
+3. java.io包下提供了各种”流”类和接口，用以获取不同类的数据，并通过方式输入或输出数据
+
+![](assets/Snipaste_2023-05-11_22-45-47.png)
+
+## 流的分类
+
+1. 按操作数据单位不同分为：字节流（8 bit）(二进制文件)，字符流（按字符）(文本文件)
+
+2. 按数据流的流向不同分为：输入流，输出流
+
+3. 按流的角色的不同分为：节点流，处理流/包装流
+
+   ![](assets/Snipaste_2023-05-12_19-52-11.png)
+
+图上都为抽象类不能进行实现，只能实现其子类来操控
+
+![](assets/Snipaste_2023-05-14_18-06-15.png)
+
+### 输出流和输入流
+
+![](assets/Snipaste_2023-05-13_10-35-02.png)
+
+当以 new FIleInputStream(file,true);的形式是为追加，或者为覆盖
+
+
+
+### 字符流
+
+![](assets/Snipaste_2023-05-14_17-38-40.png)
+
+## 节点流和处理流
+
+1. 节点流可以从一个特定的数据源读写数据，如FileReader,FileWriter
+2. 处理流（包装流）是“连接”在已存在的流（节点流或处理流）之上，为程序提供更为强大的读写功能，如BufferedReader,BufferedWiter
+3. 节点流是底层流/低级流，直接跟数据源链接
+4. 处理流包装节点流，既可以消除不同的节点流的实现差异，也可以提供更方便的方法来完成输入输出
+5. 处理流对节点流进行包装，使用了修饰器设计模式，不会直接与数据源相连
+
+![](assets/Snipaste_2023-05-15_08-26-12.png)
+
+### 处理流的功能(修饰器模式)
+
+1. 性能的提高：主要以增加缓冲的方式来提高输入输出的效率
+2. 操作的便捷：处理流可以提供了一系列便捷的方法来一次输入输出大批量的数据，使用更加灵活方便
