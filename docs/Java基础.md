@@ -2219,6 +2219,7 @@ class MyRunnable2 implements Runnable{
 1. I/O是input/Output的缩写，I/O技术是非常实用的技术，用于处理数据传输。如读/写文件，网络通讯等
 2. java程序中，对于数据输入/输出操作以“流（stream)“的方式进行
 3. java.io包下提供了各种”流”类和接口，用以获取不同类的数据，并通过方式输入或输出数据
+4. ![](assets/Snipaste_2023-05-19_09-23-56.png)
 
 ![](assets/Snipaste_2023-05-11_22-45-47.png)
 
@@ -2262,3 +2263,161 @@ class MyRunnable2 implements Runnable{
 
 1. 性能的提高：主要以增加缓冲的方式来提高输入输出的效率
 2. 操作的便捷：处理流可以提供了一系列便捷的方法来一次输入输出大批量的数据，使用更加灵活方便
+
+### 处理流
+
+1. BufferedReader 和 BufferedWriter 属于字符流，是按照字符来读取数据的
+2. 关闭时，只需要关闭外层流即可
+
+### Buffered字符流
+
+```java
+public static void main(String[] args) throws Exception{  
+String filePath = "D:\\hello.txt"; 
+BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath));
+String line;
+//按行读取    
+while((line = bufferedReader.readLine())!= null){ 
+System.out.println(line);    } 
+//关闭流   
+bufferedReader.close();}
+```
+
+```java
+public static void main(String[] args) throws Exception{  
+    String  filePath = "D:\\play.txt";
+    //放入  字节流  进行包装    
+    //追加 
+    BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filePath));    bufferedWriter.write("我在玩");   
+    bufferedWriter.newLine();
+    // 插入一个和系统相关的的换行 
+    bufferedWriter.write("游戏"); 
+    bufferedWriter.close();}
+```
+
+### Buffered字节流
+
+```java
+public class BufferedIO {  
+    public static void main(String[] args) {  
+        String filepath = "D:\\girl.jfif";   
+        String goalPath = "D:\\jkGirl.jfif"; 
+        BufferedInputStream bui = null;   
+        BufferedOutputStream buo = null;  
+        try {       
+            bui = new BufferedInputStream(new FileInputStream(filepath));  
+            buo = new BufferedOutputStream(new FileOutputStream(goalPath)); 
+            byte[] buff = new byte[1024];  
+            int readLen;      
+            while ((readLen = bui.read(buff)) != -1){ 
+                buo.write(buff,0,readLen); 
+            }      
+        } catch (IOException e) {  
+            e.printStackTrace();      
+        } finally {       
+            try {                 
+                bui.close();           buo.close();     
+            } 
+            catch (IOException e) {    
+                e.printStackTrace();         
+            }        } 
+    }
+}
+```
+
+### 序列化和反序列化以及对象流
+
+1. 序列化就是保存数据时，保存数据的值和数据类型
+
+2. 反序列化就是在恢复数据时，恢复数据的值和数据类型
+
+3. 需要让某个对象支持序列化机制，则必须让其类是可以序列化的，为了让某个类是可序列化的，该类必须实现如下两个接口之一： Serializable  （标记接口）、Externalizable
+
+4. 对象流能保存数据类型和对象
+
+5. 读取顺序和存放顺序一致
+
+6. trainisant（临时的） 是轻量级并发锁，可视化，禁止指令重排但不能缺包原子性
+
+7. ![](assets/Snipaste_2023-05-20_16-06-54.png)
+
+    
+
+### 转换流
+
+1. inputStreamReader:   Reader的子类，可以讲InputStream(字节流)装成Reader
+2. OutputStreamWriter:Writer的子类，实现将OutputStream(字节流)包装成Writer（字符流）
+3. 当处理纯文本数据时，如果使用字符流效率更高，并且可以有效解决中文问题，所以建议将字节流转换成字符流
+4. 可以在使用时指定编码格式（比如utf-8,gbk,gb2313,ISO8859-1）
+5. ![](assets/Snipaste_2023-05-20_18-18-37.png)
+
+
+
+
+
+
+
+### 标准输入流和输出流
+
+1. 标准输入 System.in            类型：inputStream
+2. 标准输出 System.out       类型：PrintStream
+
+
+
+### 打印流
+
+1. 打印流只有输出
+2. PrintStream,PrintStream
+3. System.setOur(PrintStream());  可以修改输出位置（默认在显示器）
+4. ![](assets/Snipaste_2023-05-21_10-02-50.png)
+5. ![](assets/Snipaste_2023-05-21_10-02-13.png)
+
+## Properites类（配置文件）
+
+1. IP，user，password
+2. 专门用于读写配置文件的集合类
+3. 配置格式：键=值（键值不需要空格，默认类型是String）
+
+
+
+### properites的常见方法
+
+1. load:加载配置文件的键值对搭配properties对象
+2. list:将数据显示到指定设备
+3. getProperty(key):根据键获取值
+4. setProperty(key,value):设置键值对到properties对象
+5. store:将Properties中键值对存储到配置文件，在idea中，保存信息到配置文件，如果包含中午，会存储位unicode码
+
+
+
+# 网络
+
+## ip
+
+![](assets/Snipaste_2023-05-29_09-13-52.png)
+
+
+
+## 域名
+
+1. www.baidu.com
+2. 好处：为了方便记忆，解决ip困难
+3. 概念：将IP地址映射成域名
+
+
+
+## 端口号
+
+1. 概念：用于标识计算机上某个特点网络程序
+2. 表示形式：以整形形式，范围0~65535
+3. 0-1024已经被占用，比如 ssh 22,ftp 21,smtp 25,http 80
+4. 常用的网络程序端口号：
+   - ​      tomact :8080
+   - ​      mysql:3306
+   - ​     oracle:1521
+   - ​      sqlserver:1433
+
+
+
+![](assets/Snipaste_2023-05-29_15-58-37.png)
+
