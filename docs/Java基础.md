@@ -2353,7 +2353,23 @@ public class BufferedIO {
 
 
 
+```java
+public class Transformation {
+    public static void main(String[] args) throws IOException {
+        String filePath = "D:\\jkGirl.txt";
 
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath),"gbk"));
+        String line;
+          while ((line = bufferedReader.readLine()) != null){
+              System.out.println(line);
+          }
+         // InputStreamReader inputStreamReader = new InputStreamReader(,"utf-8");
+         //OutputStreamWriter
+        bufferedReader.close();
+    }
+}
+
+```
 
 
 
@@ -2388,36 +2404,231 @@ public class BufferedIO {
 4. setProperty(key,value):设置键值对到properties对象
 5. store:将Properties中键值对存储到配置文件，在idea中，保存信息到配置文件，如果包含中午，会存储位unicode码
 
+# TCP和UDP
+
+##  InetAddress类
+
+1. 获取本机InetAddress对象 getLocalHost
+2. 根据指定主机名/域名获取ip地址对象 getByName
+3. 获取InetAddress对象的 主机名 getHostName
+4. 获取Int'Address对象的地址 getHostAddress
+
+## Socket
+
+### 基本介绍
+
+1. 套接字（socket）开发网络应用程序被广泛采用，以至于成为事实上的标准
+2. 通信的两端都要有socket，是两台机器间通信的端点
+3. 网络通信其实就是socket间的通信
+4. socket允许程序把网络连接成一个流，数据在两个socket间通过IO传输
+5. 一般主动发起通信的应用程序属客户端，等待通信请求的为服务器
+
+![](assets/Snipaste_2023-05-31_19-49-15.png)
+
+![](assets/Snipaste_2023-06-01_21-56-20.png)
+
+结束标记：writer.newLine(需要对方使用  read.Line来读取),socket.shutdownOutput();
+
+## netstat
+
+1. netstat -an 可以查看当前主机网络情况，包括端口监听情况和网络连接情况
+2. netstat -an|more  可以分页显示
+3. 要求在dos控制台下执行
+4. Ctrl + c 退出
 
 
-# 网络
 
-## ip
+## UDP
 
-![](assets/Snipaste_2023-05-29_09-13-52.png)
-
-
-
-## 域名
-
-1. www.baidu.com
-2. 好处：为了方便记忆，解决ip困难
-3. 概念：将IP地址映射成域名
+UDP是一种面向无连接的传输层协议，不像TCP一样提供可靠的数据传输和流量控制，而是以数据包的形式直接进行传输，不保证数据包的发送和接收一定成功。UDP协议的优点是传输效率高，适用于对可靠性要求不高但要求传输速度快的场合。常用于视频、音频流传输以及多人在线游戏等
 
 
 
-## 端口号
+# 项目开发
 
-1. 概念：用于标识计算机上某个特点网络程序
-2. 表示形式：以整形形式，范围0~65535
-3. 0-1024已经被占用，比如 ssh 22,ftp 21,smtp 25,http 80
-4. 常用的网络程序端口号：
-   - ​      tomact :8080
-   - ​      mysql:3306
-   - ​     oracle:1521
-   - ​      sqlserver:1433
+![](assets/Snipaste_2023-06-05_09-30-42.png)
 
 
 
-![](assets/Snipaste_2023-05-29_15-58-37.png)
+# QQ登录系统
+
+![](assets/Snipaste_2023-06-05_20-35-06.png)
+
+
+
+# 反射
+
+即通过外部文件配置，在不修改源码情况下来控制程序，符合设计模式ocp原则（开闭原则）
+
+加载完类之后，在堆中就产生一个class类型的对象（一个类只有一个class对象），这个对象包含了类的完整结构信息。通过这个对象得到类的结构。这个class对象就像一面镜子，透过这个镜子看到类的结构，所以，形象的称之为：反射
+
+![](assets/Snipaste_2023-06-10_10-03-09.png)
+
+![](assets/Snipaste_2023-06-10_10-16-26.png)
+
+## 反射机制的优化
+
+1. Method和Field，Constructor对象都有setAccessible（）方法
+2. setAccessible（）作用是启动和禁用访问安全检查的开关
+3. 参数为true表示反射的对象在使用时取消访问检查，提高反射的效率。参数值为false则表示反射的对象执行访问检查
+
+## class类
+
+1. Class也是类，因此也继承object类
+2. class类对象不是new出来的，而是系统创建的
+3. 对于某个类的class类对象，而在内存中只有一份，因此类只加载一次
+4. 每个类的实例都会记得自己是由那个class实现所成
+5. 通过class对象可以完整地得到一个类的完整结构，通过一系列API
+6. class对象是存在堆的
+7. 类的字节码二进制数据，是放在方法区的，有的地方称为类的元数据
+
+![](assets/Snipaste_2023-06-10_14-37-38.png)
+
+## 获取class对象
+
+1. 前提：已知一个类的全类名，且该类在类路径下，可通过class类静态方法forName（）获取，可能在抛出ClassNotFoundExeception,实例：Class cls1 = Class.forName("java.lang.Cat"); <font color = "red">应用场景</font>：多用于配置文件，读取类的全路径，加载类
+
+2. 前提：若已知具体的类，通过类的class获取，该方式最为安全可靠，程序能最高实例：Class cls2 =Cat.class   应用场景：多用于参数传递，比如通过反射得到对应构造器对象
+
+3. 前提：已知某个类的实例，通过调用该实例的getClass方法获取Class对象，实例：Class class =对象.getClass     应用场景：通过创建好的对象，获取class对象
+
+4. 类加载器：
+
+   ```java
+    cl = Car.getClass().getClassLoader();
+   Class class = cl.loadClass("类的全名");
+   ```
+
+
+
+
+
+
+## 类加载
+
+1. 静态加载：编译时加载相关的类，如果没有则报错，依赖性强
+2. 动态加载：运行时加载需要的类，如果运行时不用该类，则不报错，降<b>低</b>依赖性
+3. 类加载时期  1.创建对象时  2.当子类加载时 3.调用类中的静态成员时 4.通过反射 (动态)
+
+![](assets/Snipaste_2023-06-11_20-34-52.png)
+
+![](assets/Snipaste_2023-06-11_20-57-55.png)
+
+### 加载阶段
+
+- JVM在该阶段的主要目的是将字节码从不同的数据源（可能时class文件，也可能是jar包，甚至是网络）转化为二进制字节流加载到内存中，并生成一个代表类的Java.lang.Class对象
+
+### 验证阶段
+
+1. 目的是为了确保Class文件的字节流中包含的信息符合当前虚拟机的要求，并且不会危害虚拟机自身的安全
+2. 包括文件格式验证（是否以魔数 oxcafebabe开头）,元数据验证，字节码验证和符号引用验证
+3. 可以考虑使用 -Xverify:none 参数来关闭大部分的类验证措施，缩短虚拟机类加载的时间。
+
+### 准备阶段
+
+- JVM会在该阶段对静态变量，分配内存并初始化（对应的数据类型的默认初始值，如0，0L,null,false等）。这些变量所使用的内存都将在方法区中进行分配
+
+- ```java
+  int  n1 = 10;
+  static int n2 = 10;
+  final static int n3 = 10 ;
+  /* n1 是实例属性，不是静态变量，因此在准备阶段不会分配内存
+     n2 是静态变量，分配内存n2是默认初始化0，而不是10
+     n3 是static final 是常量，他和静态变量不一样，因为一旦赋值不变 n3=10;
+  
+  
+  ```
+
+  
+
+### 解析阶段
+
+- 虚拟机将常量池内的符号引用替换为直接引用的过程
+
+
+
+### 初始化阶段
+
+1. 到初始化阶段才真正开始执行类中定义的java程序代码，此阶段是执行<clinit>()方法的过程
+2. <clinit>()方法是由编译器按语句在源文件中出现的顺序，依次自动收集类中所有<font color = "blue">静态变量</font>的赋值动作和静态代码块中的语句，并进行合并
+3. 虚拟机会保证一个类<clint>()方法在多线程环境中被正确地加锁，同步，如果多个线程同时去初始化一个类，那么只会有一个线程去执行这个类的<clint>（）方法，其他线程都需要阻塞等待，直到活动线程执行<clint>()方法完毕
+
+## 获得类结构信息
+
+![](assets/Snipaste_2023-06-24_16-51-38.png)
+
+第二组：java.lang.reflect.Methond
+
+$$
+1. getModifiers:以int形式返回修饰符；【默认修饰符 0  ;   public  1 ; private 2 ;  protected 4  static 8 final 16】\\
+2. getType:以class形式返回类型\\
+3. getName：返回属性名\\
+$$
+第三组：java.lang.reflect.Method
+
+$$
+1. getModifiers:以int形式返回修饰符；\\
+2. getReturnType:以class形式获取 返回类型\\
+3. getName:返回方法名\\
+4. getParameter:以class[]返回注解信息
+$$
+
+
+## 通过反射创建对象
+
+### 访问构造器
+
+1. 调用类中的public修饰的无参构造器
+
+2. 调用类中指定的构造器
+
+3. class类 相关方法
+   $$
+   newInstance:调用类中的无参构造器;\\  
+   getConstructor(Class ...class):根据参数列表，获取对应public的构造器对象\\
+   getDecalaredConstructor(Class...class)：根据参数列表，获取对应构造器对象\\
+   $$
+
+4. Constructor类的相关方法
+   $$
+   setAccessible:暴力破解\\
+   newInstance(Object..obj):调用构造器\\
+   $$
+
+### 访问属性
+
+1. 根据属性名获取Field对象
+
+   ```java
+   Filed f = class对象.getDeClareField(属性名);
+   ```
+
+2. 暴力破解:f.setAccessible(true);
+
+3. 访问
+
+   ```java
+   f.set(o);\\o表示对象
+   syso(f.get(o));
+   ```
+
+4. 如果是<font color =  "red">静态属性</font>,则set和get中的参数o,可以写出null
+
+### 访问方法
+
+1. 根据方法名和参数列表获取Method方法对象:
+
+   ```java
+   Method m = class.getDeclaredMethod(方法名,xx.class);
+   ```
+
+2. 获取对象:Object o  =  class.newInstance();
+
+3. 爆破:吗.setAccessible(true);
+
+4. 访问:Object returnValue = m.invoke(o.实参列表);
+
+5. 注意如果是静态方法,则invoke的参数o,可以写成null
+
+
 
